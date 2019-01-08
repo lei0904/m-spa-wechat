@@ -1,2 +1,1 @@
 # spa-wechat
-spa-wechat
