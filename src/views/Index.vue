@@ -12,7 +12,7 @@
     methods: {
     },
     mounted: function () {
-    this.$router.push({path:'/exams'})
+    this.$router.push({path:'/order'})
     }
   }
 

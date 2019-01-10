@@ -5,6 +5,8 @@ import App from './App.vue'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+import 'animate.css'
+
 
 import FastClick from 'fastclick'
 FastClick.attach(document.body)

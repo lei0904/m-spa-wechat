@@ -66,7 +66,7 @@
         <mt-cell title="我的订单"  @click.native="toOrder"  is-link ></mt-cell>
       </form>
       <div class="btn-content">
-        <mt-button type="primary" size="large">购买教材</mt-button>
+        <mt-button type="primary" size="large" @click.native="toBuy">购买教材</mt-button>
       </div>
     </div>
     <div class="btn-content" v-show="!isShow">
@@ -156,6 +156,9 @@
       toOrder(){
         this.$router.push({'path':'/order'})
       },
+      toBuy(){
+          this.$router.push({'path':'/BuyTextBook'})
+        } ,
       openWorkType(){
         this.$refs.changeWorkTypePicker.open()
       },
