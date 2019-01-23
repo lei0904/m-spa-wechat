@@ -1,5 +1,6 @@
 //let root = 'http://jason.s1.natapp.cc/api/';
-let  root  = 'http://51cxgj.com/dispatch/api/';
+//let  root  = 'http://51cxgj.com/dispatch/api/';
+let  root  = 'http://coxsh.natapp1.cc/api/';
 import Vue from 'vue'
 import axios from 'axios'
 import Qs from 'qs'
@@ -25,7 +26,7 @@ function api (method, url, params, loading) {
             baseURL: root,
             withCredentials: false,
             headers: {
-                 'Content-Type': 'application/x-www-form-urlencoded'
+                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 //'Content-Type': 'application/json'
             }
         }).then(function (response) {

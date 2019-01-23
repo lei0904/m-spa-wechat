@@ -28,6 +28,7 @@ import router from './router'
 import store from './store'
 import './validators/index.js'
 
+
  import VueTouch from 'vue-touch'
 
 Vue.use(VueTouch);
@@ -41,7 +42,6 @@ Vue.prototype.$ces = Ces;
 // Mock.init()
 Vue.config.productionTip = false;
 
-
 Vue.use(MintUI);
 
 Vue.prototype.$mint =MintUI;
@@ -53,6 +53,7 @@ import api from './api/api'
 Vue.prototype.$api = api;
 
 /* eslint-disable no-new */
+
 Ces.ready(function () {
   new Vue({
     el: '#app',
@@ -60,12 +61,19 @@ Ces.ready(function () {
     store,
     template: '<App/>',
     components: {App},
-    render: h => h(App)
-  });
- /* document.addEventListener('click',function (e) {
-    console.log('绑定点击事件提交后台事件池------',e);
+    render: h => h(App),
+    methods:{},
+    created(){
+        this.$store.dispatch('SET_WORK_TYPE');
+        this.$store.dispatch('SET_NATION');
+        this.$store.dispatch('SET_MEMBER_LIST');
 
-  })*/
+
+    },
+  });
+
+
+
 });
 if (module.hot) {
   module.hot.accept();

@@ -2,63 +2,117 @@
     <div class="traing-exam">
         <v-touch v-on:swipeleft="onSwipeLeft()"
                  v-on:swiperight="onSwipeRight()"
+                 v-if="examsList.question.hasOwnProperty('option_type')"
                  class='animated faster'
                  :class="{'slideInLeft':isSlideLeft,'slideInRight':isSlideRight}">
                 <div class="question-content">
-                    <div class="item" v-if="examsList.questionType == 0">单选题</div>
-                    <div class="item" v-if="examsList.questionType == 1">多选题</div>
-                    <div class="item" v-if="examsList.questionType == 2">判断题</div>
+                    <div class="item" v-if="examsList.question.option_type == 1">单选题</div>
+                    <div class="item" v-if="examsList.question.option_type == 2">多选题</div>
+                    <div class="item" v-if="examsList.question.option_type == 3">判断题</div>
                     <div class="question">
-                        <div >{{examsList.idx}}.{{examsList.question}}</div>
+                        <div>{{examsList.question.question}}</div>
                         <div class="icon"
                              @click="collectQuestion(isCollect)"
                              :class="isCollect?'collected':'no-collect'"></div>
                     </div>
-                    <div class="answer">
+                    <div class="answer" v-if="examsList.question.option_type == 1">
                         <div class="answer-item"
-                             v-for="result in examsList.answer"
-                             @click="resultSub(result)">
-                            <span>{{result.id}}</span>
-                            <span>{{result.solution}}</span>
+                             v-for="(result,index) in examsList.options">
+                            <input type="radio"
+                                   :name='"adviceRadio"+index'
+                                   v-model="userAnswer"
+                                   :id='"adviceRadio"+index'
+                                   :value='result.choice'  hidden/>
+                            <label :for='"adviceRadio"+index' class="advice"></label>
+                            <span class="radio-name">{{result.choice}}.{{result.content}}</span>
                         </div>
+                    </div>
+                    <div class="answer" v-if="examsList.question.option_type == 2">
+                        <div class="answer-item"
+                             v-for="(result,index) in examsList.options">
+                            <label>
+                                <input type="checkbox"
+                                       @change="checkBoxAnswer(result.choice)"
+                                       :id='"userCheckBox"+index'
+                                       v-model="checkedNames"
+                                       :value='result.choice' hidden/>
+                                <label :for='"userCheckBox"+index' class="adviceCheckBox" ></label>
+                                <span> {{result.choice}}.{{result.content}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="answer" v-if="examsList.question.option_type == 3">
+                        <div class="answer-item">
+                            <label>
+                                <input type="radio" name="checkedAnswer" v-model="userAnswer" id="adviceRadio1" value='A' hidden/>
+                                <label for="adviceRadio1" class="advice"></label>
+                                <span class="radio-name">A.正确</span>
+                            </label>
+                        </div>
+                        <div class="answer-item">
+                            <label>
+                                <input type="radio" name="checkedAnswer" v-model="userAnswer" id="adviceRadio2" value='B' hidden/>
+                                <label for="adviceRadio2" class="advice"></label>
+                                <span class="radio-name">B.错误</span>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="answered-content">
+                    <span class="answered"
+                         v-if="showConfirm ||model === 1|| model ===2"
+                         @click="confirmAnswer">确定</span>
+                    <span class="answered"
+                         v-if="!showConfirm ||model === 1|| model ===2"
+                         @click="resultSub()"  >
+                        查看答案
+                    </span>
                     </div>
                 </div>
                 <div class="right-answer" v-show="showAnswer">
                     <div class="model-answer">
                         <div class="model-title">
-                            <div>标准答案: <span>ABC</span></div>
-                            <div class="type-desc">分类:法律规范</div>
+                            <div>标准答案: <span>{{examsList.question.answer}}</span></div>
+                            <div class="type-desc">分类:{{examsList.question.type_name}}</div>
                         </div>
                         <div class="model-analyze">
-                            解析：遇到事情不要紧张，酒吧都是有后台的，不怕狠人，只要有钱什么事都好说
+                            {{examsList.question.description}}
                         </div>
                     </div>
                 </div>
         </v-touch>
-        <div class="exam-foot">
-            <div class="icon question-right" @click="showQuestionNum(1)">0</div>
-            <div class="icon question-wrong" @click="showQuestionNum(2)">1</div>
-            <div class="icon question-totals"@click="showQuestionNum(3)">{{examsList.idx}}/{{examsList.totals}}</div>
+        <div v-else class="empty">
+            <div class="icon-empty"></div>
+             <span>暂无数据</span>
+        </div>
+        <div class="exam-foot" v-if="model !== 1 && model !== 2">
+            <div class="icon question-right" @click="showQuestionNum()">{{statistics.right_num}}</div>
+            <div class="icon question-wrong" @click="showQuestionNum()">{{statistics.error_num}}</div>
+            <div class="icon question-totals"@click="showQuestionNum()">{{statistics.all_num}}</div>
         </div>
         <mt-popup
                 v-model="popupVisible"
                 position="bottom"
                 popup-transition="popup-fade">
-            <div class="popup-question" :style="{width:screenWidth+'px',height:screenHeight+'px'}">
-                <div class="item"
-                     v-if="showIdStatus == questionObj.status"
-                     :class="[{right:questionObj.status ==1,wrong:questionObj.status ==2}]"
-                     v-for="(questionObj,idx) in questionNumList" >{{questionObj.id}}</div>
-
-                <div class="item"
-                     v-if="showIdStatus == 3"
-                     :class="[{right:questionObj.status ==1,wrong:questionObj.status ==2}]"
-                     v-for="(questionObj,idx) in questionNumList" >{{questionObj.id}}</div>
+            <div class="popup-question" :style="{'width':screenWidth+'px','max-height':screenHeight+'px'}">
+                <div  class="popup-question" v-if="questionNumList.length >0">
+                    <div class="item"
+                         :class="[{right:showIdStatus  ==1 ||questionObj.status ==1,
+                                    wrong:showIdStatus ==2 ||questionObj.status ==2}]"
+                         v-for="(questionObj,idx) in questionNumList"
+                         @click="toQuestion(questionObj.id)"
+                    >{{idx+1}}</div>
+                </div>
+                <div class="empty" v-else>
+                    暂无数据
+                </div>
             </div>
         </mt-popup>
     </div>
 </template>
 <script>
+    import StoreJs from 'store'
+    import {mapState,mapGetter} from 'vuex'
     export default {
         data() {
             return {
@@ -69,86 +123,180 @@
                 isCollect:false,
                 isSlideLeft: false,
                 isSlideRight:false,
+                showConfirm:true,
+                userAnswer:null,
+                userCheckBoxAnswer:'',
+                checkedNames:[],
                 examsList:{
-                    totals:50,
-                    questionType:Math.floor(Math.random()*3),
-                    idx:1,
-                    question:'工作中如果遇到醉酒顾客闹事该怎么处理?',
-                    answer:[
-                        {id:'A',solution:' 报告经理'},
-                        {id:'B',solution:' 打电话报警寻求帮助'},
-                        {id:'C',solution:' 喊保安'}]
+                    question:{},
+                    options:{},
+                    answer:null
                 },
+                statistics:{},
                 questionNumList:[],
-                showIdStatus:''
+                showIdStatus:'',
+                getOpenId:'',
+                question:'',
+                type:'1',
+                model:''
             };
         },
         methods: {
+            checkBoxAnswer(v){
+                let th = this;
+                th.checkedNames= th.checkedNames.sort();
+                th.checkedNames.filter(item => item)
+                let arr   =  th.checkedNames.filter(item => item)
+                th.userCheckBoxAnswer = arr.sort().join(',');
+                console.log("-----th.userCheckBoxAnswer----",th.userCheckBoxAnswer);
+
+            /*    if(th.checkedNames.includes(v)){
+                  let idx =   th.checkedNames.findIndex(value => value === v);
+                  console.log('idx---',idx)
+                    th.checkedNames.splice(idx,1)
+                }else{
+                    th.checkedNames.push(v);
+                }
+                th.userCheckBoxAnswer = th.checkedNames.sort().join(',');
+                console.log("-----th.userCheckBoxAnswer----",th.userCheckBoxAnswer);*/
+            },
             onSwipeLeft(){
                 console.log('---onswipeLeft');
                 this.isSlideLeft=false;
                 this.isSlideRight =true;
-                this.isCollect= false;
                 this.showAnswer =false;
+                this.type ='2';
+                console.log('ts.examsList---',this.examsList);
                 this.loadExam();
             },
             onSwipeRight(){
                 console.log('---onswipeRight')
                 this.isSlideLeft=true;
                 this.isSlideRight =false;
+                this.type ='0';
+                console.log('ts.examsList---',this.examsList);
                 this.loadExam();
             },
-            loadExam(){
-                let ts = this;
-                let tempList =ts.examsList;
-                // this.examsList=[];
-                console.log(tempList)
-                tempList.idx= tempList.idx+1;
-                tempList.question =(tempList.question) + tempList.idx;
-                for(let j=0; j<tempList.answer.length;j++){
-                    tempList.answer[j].solution = tempList.answer[j].solution+tempList.idx;
+            confirmAnswer(){
+                let ths = this;
+                ths.showConfirm = false;
+                let params ={
+                    openid:ths.getOpenId,
+                    question:ths.examsList.question.id,
+                    answer:ths.examsList.question.option_type == 2 ? ths.userCheckBoxAnswer:ths.userAnswer
                 }
-                ts.examsList={};
-                ts.examsList=tempList
+                console.log('showConfirm---',params);
+                ths.$api.get('study/submit',params).then((rets)=>{
+                    console.log('----rets-----',rets)
+
+                    if(!ths.model){
+                        ths.getStatistice();
+                    }
+                })
+
+            },
+            toQuestion(id){
+                this.type= '1';
+                this.loadExam(id)
+                this.popupVisible = false;
+                this.showAnswer = false;
+            },
+            loadExam(changeId){
+                let ts = this;
+                let params = {
+                    openid:ts.getOpenId,
+                    question:changeId||ts.examsList['question'].id,
+                    type:ts.type,
+                    model:ts.model
+                }
+
+                ts.$api.get('study/question',params).then((rets)=>{
+                    console.log(' question rets---',rets)
+                    if(rets.status ==='OK'){
+                        ts.showConfirm = true;
+                        ts.userAnswer= null;
+                        ts.examsList = rets.data;
+                        if(rets.data.question.collect == 0){
+                            ts.isCollect=false
+                        }else{
+                            ts.isCollect=true;
+                        }
+                        console.log('ts.isCollect---',ts.isCollect)
+
+                        if(!rets.data.answer){
+                            ts.showConfirm = true;
+                        }else{
+                            ts.showConfirm = false;
+                        }
+
+                        if( ts.examsList.question.option_type == 2){
+                            ts.userCheckBoxAnswer = rets.data.answer;
+                            ts.checkedNames = rets.data.answer.split(',')
+                        }else{
+                            ts.userAnswer =rets.data.answer;
+                        }
+                        if(!ts.model){
+                            ts.getStatistice();
+                        }
+                    }
+                })
                 setTimeout(function () {
                     ts.isSlideLeft=false;
                     ts.isSlideRight =false;
                 },500)
             },
-            resultSub(item){
-                console.log('resutlSub---',item)
+            getStatistice(){
+                let ts = this;
+                ts.$api.get('study/statistics',{openid:ts.getOpenId}).then((typeResult)=>{
+                    if(typeResult.status == 'OK'){
+                        ts.statistics = typeResult.data;
+                    }
+                })
+            },
+            resultSub(){
                 let that = this;
                 that.showAnswer = true;
-                //that.$router.push({'path':'/examResult'})
             },
             collectQuestion(flag){
-                this.isCollect = !flag;
-                console.log('收藏题目-----')
+                let _ths = this;
+                _ths.isCollect = !flag;
+               let params ={
+                   openid:_ths.getOpenId,
+                   question:_ths.examsList.question.id,
+                   option: _ths.isCollect?'1':'0'
+               };
+               _ths.$api.get('study/collect',params).then((rets)=>{
+                        _ths.$mint.Toast({
+                            message:rets.message,
+                            position:'center'
+                        })
+               })
             },
-            showQuestionNum(questionStatus){
-                this.popupVisible =true;
-                this.showIdStatus = questionStatus
+            showQuestionNum(){
+                let ts = this;
+                ts.$api.get('study/list',{openid:ts.getOpenId,type:3}).then((ret)=>{
+                    console.log('study/list---',ret);
+                    if(ret.status == 'OK'){
+                        ts.questionNumList=[];
+                        ts.questionNumList= ret.data;
+                        console.log('ts.questionNumList----',ts.questionNumList)
+                        ts.popupVisible =true;
+                        //ts.showIdStatus = questionType;
+                    }else{
+
+                    }
+                })
+
             }
         },
         mounted: function () {
-            this.screenWidth = document.body.clientWidth;
-            this.screenHeight = document.body.clientHeight / 1.5;
-            console.log("document.body.clientWidth---",document.body.clientWidth)
-            for(let i=1;i<=100;i++){
-                let _tempStatus =0;
-                if(i<=5){
-                    _tempStatus =1;
-                }else if(i<=8){
-                    _tempStatus =2;
-                }else if(i<=20){
-                    _tempStatus =1;
-                }
-                let _temp = {
-                    status:_tempStatus,
-                    id:i
-                };
-                this.questionNumList.push(_temp)
-            }
+            let ths  = this;
+            ths.screenWidth = document.body.clientWidth;
+            ths.screenHeight = document.body.clientHeight / 1.5;
+            ths.getOpenId = ths.$store.getters['GET_OPENID'];
+            ths.model = ths.$route.query.model;
+            console.log('ths.model ---',ths.model )
+            this.loadExam();
         }
     }
 
@@ -157,7 +305,50 @@
 <style lang="scss">
     .traing-exam{
         height: 100vh;
+        .empty{
+            color: #1296db;
+            text-align: center;
+            font-size: 18px;/*no*/
+            margin: 60px;
+            .icon-empty{
+                background: url("../assets/image/icon-collect-empty.png") no-repeat;
+                background-size: 100% 100%;
+                width: 68px;
+                height: 68px;
+                margin: 20px auto;
+            }
+        }
         font-size: 14px;/*no*/
+        .advice{
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            background-image: url('../assets/image/icon-radio-uncheck.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            vertical-align: middle;
+            margin-top: -4px;
+            margin-right: 10px;
+        }
+        input[type="radio"]:checked + .advice{
+            background-image: url('../assets/image/icon-radio-checked.png');
+        }
+        .adviceCheckBox{
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            background-image: url('../assets/image/icon-checkbox-uncheck.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            vertical-align: middle;
+            margin-top: -4px;
+            margin-right: 10px;
+        }
+        input[type="checkbox"]:checked + .adviceCheckBox{
+            background-image: url('../assets/image/icon-checkbox-checked.png');
+        }
         .question-content{
             padding: 20px 10px;
             background: #ffffff;
@@ -191,6 +382,15 @@
                 padding: 10px;
                 .answer-item{
                     padding: 10px 0;
+                }
+            }
+            .answered-content{
+                display: flex;
+                justify-content: flex-end;
+                .answered{
+                    text-align: right;
+                    color: #1296db;
+                    padding: 0 10px;
                 }
             }
         }
@@ -262,7 +462,12 @@
             justify-content: flex-start;
             align-content: flex-start;
             overflow-y: scroll;
-
+            padding: 10px;
+            .empty{
+               text-align: center;
+                margin: auto;
+                width: 100%;
+            }
             .item{
                 width: 50px;
                 height: 50px;

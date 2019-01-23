@@ -5,7 +5,8 @@
               position="bottom"
               class="cui-attr-picker"
               v-model="visible">
-      <mt-picker :slots="attrSlots"
+      <mt-picker ref="picker"
+              :slots="attrSlots"
                   @change="onAttrChange"
                   :value-key="valueKey" :visible-item-count="5" show-toolbar>
         <span class="cui-attr-picker-action cui-attr-picker-cancel"
@@ -74,11 +75,21 @@
         attrCode:""
       };
     },
-
+    watch:{
+        listArr (v) {
+            this.listArr = v;
+            this.$set(this.attrSlots, 0, {
+                flex: 1,
+                values: this.listArr,
+                defaultIndex: 0,
+                className: 'slot1'
+            })
+        }
+    },
     methods: {
       onAttrChange: function (picker, value) {
         this.attr = value[0].name;
-        this.attrCode = value[0].code;
+        this.attrCode = value[0].code || value[0].id;
       },
       confirm: function(e) {
         this.close();

@@ -96,7 +96,7 @@
             font-size: 16px;/*no*/
           }
           .list-status{
-            width: 50px;
+            width: 80px;
             text-align: right;
             font-size: 16px;/*no*/
             .unpaid{

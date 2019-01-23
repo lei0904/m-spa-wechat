@@ -30,12 +30,12 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     //warn 是否压缩代码
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   },
-    //   sourceMap: true
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: true
+    }),
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),

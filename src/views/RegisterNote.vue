@@ -1,21 +1,44 @@
 <template>
   <div class="RegisterNote">
     <div class="note-content">
-      <div class="note-info">您的信息正在由 <span class="unit">南门游戏厅</span> 审核！！！</div>
-      <div class="note-help">如需帮助，请联系商户（<input class="help-tel" type="tel" v-model="helpTel" :disabled="true"/> ）</div>
+      <div class="note-info">您的信息正在由 <span class="unit">{{form.mer_name}}</span> 审核！！！</div>
+      <div class="note-help">如需帮助，请联系商户（<input class="help-tel" type="tel" v-model="form.principal_phone" :disabled="true"/> ）</div>
     </div>
   </div>
 </template>
 <script>
+    import { mapState, mapMutations , mapGetters} from 'vuex';
   export default {
     data() {
       return {
-        helpTel:13823445456
+        openId:'',
+        form:{}
       };
+
     },
+      computed:{
+          ...mapState([
+              'OPENID'
+          ]),
+          ...mapGetters([
+              'GET_OPENID'
+          ]),
+          getOpenId(){
+              this.openId= this.$store.getters['GET_OPENID'];
+              console.log('---getWorkTypeAction---',this.openId);
+              return this.openId;
+          },
+      },
     methods: {
     },
     mounted: function () {
+        let ths = this;
+        ths.$api.get('em/info',{openid:ths.getOpenId}).then((rets)=>{
+            console.log('---rets',rets)
+            if(rets.status === 'OK'){
+                ths.form = rets.data;
+            }
+        })
     }
   }
 

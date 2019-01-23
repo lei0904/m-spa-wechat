@@ -12,14 +12,16 @@ const ExamRecord = resolve => require(['@/views/ExamRecord'], resolve);
 
 const Register = resolve => require(['@/views/Register'], resolve);
 const RegisterNote = resolve => require(['@/views/registerNote'], resolve);
+const RegisterInfo = resolve => require(['@/views/registerInfo'], resolve);
 const Order = resolve => require(['@/views/Order'], resolve);
 
 const BuyTextBook = resolve => require(['@/views/BuyTextBook'], resolve);
 
 //培训学习
 const TrainingIndex = resolve => require(['@/views/TrainingIndex'], resolve);
-
 const TrainingExams = resolve => require(['@/views/TraningExam'], resolve);
+const TraningCollected = resolve => require(['@/views/TraningCollected'], resolve);
+
 
 
 
@@ -64,6 +66,11 @@ let router = new Router({
       title: '认证审核'
     },
     {
+      path: '/registerInfo',
+      component: RegisterInfo,
+      title: '认证信息'
+    },
+    {
       path: '/order',
       component: Order,
       title: '我的订单'
@@ -78,11 +85,16 @@ let router = new Router({
         component: TrainingIndex,
         title: '购买教材'
     },
-  {
-      path: '/trainingExam',
-      component: TrainingExams,
-      title: '培训练习'
-  },
+    {
+        path: '/trainingExam',
+        component: TrainingExams,
+        title: '培训练习'
+    },
+    {
+        path: '/traningCollected',
+        component: TraningCollected,
+        title: '我的收藏'
+    },
   ]
 });
 
