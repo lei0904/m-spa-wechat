@@ -2,7 +2,8 @@
   <div class="RegisterNote">
     <div class="note-content">
       <div class="note-info">您的信息正在由 <span class="unit">{{form.mer_name}}</span> 审核！！！</div>
-      <div class="note-help">如需帮助，请联系商户（<input class="help-tel" type="tel" v-model="form.principal_phone" :disabled="true"/> ）</div>
+      <div class="note-help">如需帮助，请联系商户（<a class="help-tel" :href="'tel:'+form.principal_phone" /> ）</div>
+      <div class="to-pay" @click="toPay">去付款</div>
     </div>
   </div>
 </template>
@@ -30,6 +31,9 @@
           },
       },
     methods: {
+        toPay (){
+            this.$router.push({'path':'/registerInfo'})
+        }
     },
     mounted: function () {
         let ths = this;
@@ -64,6 +68,11 @@
           text-align: center;
           width: 100px;
         }
+      }
+      .to-pay{
+        color: #ffb217;
+        font-size: 22px;
+        text-align: center;
       }
     }
   }

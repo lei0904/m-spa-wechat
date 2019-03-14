@@ -1,11 +1,11 @@
 <template>
     <div class="exam-result">
-        <div class="result" :class="status == 0 ? 'no-pass':''" v-if="status == 0" >可惜啦,就差一点点!</div>
-        <div class="result" :class="status == 1 ? 'pass':''" v-else >恭喜您!考试通过啦！</div>
+        <div class="result" :class="result == 0 ? 'no-pass':''" v-if="result == 0" >可惜啦,就差一点点!</div>
+        <div class="result" :class="result == 1 ? 'pass':''" v-else >恭喜您!考试通过啦！</div>
         <div class="result-content">
             <div class="result-title">考试结果</div>
-            <div class="question-totals">题目数量: <span class="totals">{{num}}</span></div>
-            <div class="score">总得分: <span class="score-item">{{score}}</span></div>
+            <div class="question-totals">题目数量: <span class="totals">{{questions}}</span></div>
+            <div class="score">总得分: <span class="score-item">{{total}}</span></div>
         </div>
     </div>
 </template>
@@ -13,16 +13,31 @@
     export default {
         data() {
             return {
-                status:Math.floor(Math.random()*2),
-                result:'',
-                num:50,
-                score:100
+                result:0,
+                questions:0,
+                total:0
             };
         },
         methods: {
         },
         mounted: function () {
-
+            let  ths  = this;
+            let examsItem = ths.$store.getters['GetPaperInfo'];
+            let openid = ths.$store.getters['GET_OPENID']
+            ths.$api.post('check/finish',{openid:openid,paper:examsItem.id}).then((rets)=>{
+                console.log('rets----',rets)
+                let data =  rets.data;
+                if(rets.status === 'OK'){
+                        ths.result = data.result;
+                        ths.questions = data.questions;
+                        ths.total = data.total;
+                }else{
+                    ths.$mint.Toast({
+                        message:rets.message,
+                        position:'center'
+                    })
+                }
+            })
         }
     }
 

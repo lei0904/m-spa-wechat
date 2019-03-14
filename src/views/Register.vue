@@ -2,7 +2,7 @@
   <div class="register" :style="'height:'+pageHeight+'px'">
   <div class="register-title">个人信息</div>
     <form  action="javascript:void(0)">
-      <mt-field label="用户名" placeholder="请输入用户名" v-model="form.name"></mt-field>
+      <mt-field label="姓名" placeholder="请输入姓名" v-model="form.name"></mt-field>
       <mt-cell title="性别" class="sex-content">
         <div class="male">
           <input type="radio" id="male" value ="1" name="sex" checked  @click="isCheck(1)"/>
@@ -16,18 +16,22 @@
       <mt-cell title="民族" class="special-title"
                @click.native="changeNationOpen">
         <mt-field placeholder="请选民族"
-                  v-model="form.nationText"
-                  :disabled="true"></mt-field>
+                  @input="nationInput"
+                  v-model="form.nationText" ></mt-field>
       </mt-cell>
       <mt-field label="手机号" placeholder="请输入手机号"  v-model="form.phone"></mt-field>
-
-      <mt-field label="户籍地址" placeholder="请选择户籍地址"
+      <mt-field label="户籍地区" placeholder="请选择户籍地区"
                 v-model="form.address"
                 @click.native="changeCity"
                 :disabled=true>
-
       </mt-field>
-      <mt-field label="详细地址" placeholder="请输入详细地址"  v-model="form.detailAddr"></mt-field>
+      <mt-field label="户籍详细地址" placeholder="请输入户籍详细地址"  v-model="form.detailAddr"></mt-field>
+      <mt-field label="本市地区" placeholder="请选择本市地区"
+                v-model="form.nowAddress"
+                @click.native="changeNowCity"
+                :disabled=true>
+      </mt-field>
+      <mt-field label="本市详细地址" placeholder="请输入本市详细地址"  v-model="form.nowDetailAddr"></mt-field>
       <mt-field label="紧急联系人" placeholder="请输入紧急联系人"  v-model="form.urgencyPerson"></mt-field>
       <mt-field label="紧急联系号码" placeholder="请输入紧急联系人号码"  v-model="form.urgencyPersonTel"></mt-field>
       <mt-cell title="工种" is-link class="special-title" @click.native="openWorkType">
@@ -57,8 +61,12 @@
     </form>
     <div class="register-title">行业信息</div>
     <form action="javascript:void(0)">
-      <mt-cell title="工作单位" class="special-title" @click.native ='openMerchant'  is-link >
-        <mt-field  placeholder="请选择商户信息"  v-model="form.businessText" :disabled="true"></mt-field>
+      <mt-cell title="工作单位" class="special-title"   >
+        <mt-field  placeholder="请选择商户信息"  v-model="form.businessText"></mt-field>
+        <mt-button class="bussiness-btn"
+                   type="primary"
+                   size="small"
+                   @click.native ='openMerchant' >校验</mt-button>
       </mt-cell>
       <mt-field label="单位地址" v-model="form.workUnit" :disabled="true"></mt-field>
       <mt-field label="所属行业" v-model="form.industry" :disabled="true"></mt-field>
@@ -83,22 +91,29 @@
 
     <cui-attr-picker ref="changeStatePicker"
                      @confirm="stateChange"
-                     :listArr="stateAction"> </cui-attr-picker>
+                     :listArr="stateAction"
+    > </cui-attr-picker>
     <cui-attr-picker ref="changeWorkTypePicker"
                      @confirm="workTypeChange"
                      :listArr="getWorkTypeAction"> </cui-attr-picker>
     <cui-attr-picker ref="changeNationPicker"
                      @confirm="nationChange"
-                     :listArr="getNationAction"> </cui-attr-picker>
+                     :popupVisible="false"
+                     :listArr="regNationAction"> </cui-attr-picker>
     <cui-attr-picker ref="changeMerchantPicker"
                      @confirm="merchantChange"
-                     :listArr="getMermberAction"> </cui-attr-picker>
-
-
+                     :popupVisible="false"
+                     :listArr="regMerchantAction"> </cui-attr-picker>
     <cui-address-child
-      ref="addressPicker"
-      @getLinkAddress='handleChange'
-      v-show="showAddress"></cui-address-child>
+            ref="addressPicker"
+            :cover={}
+            @getLinkAddress='handleChange'
+            v-show="showAddress"></cui-address-child>
+    <cui-address-child
+            ref="nowAddressPicker"
+            :cover=coverProvice
+            @getLinkAddress='nowHandleChange'
+            v-show="showNowAddress"></cui-address-child>
   </div>
 </template>
 <script>
@@ -118,6 +133,8 @@
           captcha:'',
           address:'',
           detailAddr:'',
+          nowAddress:'',
+          nowDetailAddr:'',
           urgencyPerson:'',
           urgencyPersonTel:'',
           IDCard:'',
@@ -137,6 +154,7 @@
         isShow:false,
         stateText:'',
         showAddress:false,
+        showNowAddress:false,
         trainForm:{
           state:'待付款'
         },
@@ -164,9 +182,15 @@
         ],
         workTypeAction:[],
         nationAction:[],
+        regNationAction:[],
         merchantAction:[],
+        regMerchantAction:[],
         timer:120,
-        openid:''
+        openid:'',
+        coverProvice:{
+          "code": "310000",
+          "name": "上海市",
+          }
       };
     },
     computed: {
@@ -174,7 +198,6 @@
             'WORK_TYPE',
             'NATION',
             'MEMBER_LIST',
-
         ]),
         ...mapGetters([
             'GET_WORK_TYPE',
@@ -188,12 +211,14 @@
         },
         getNationAction(){
                 this.nationAction = this.$store.getters['GET_NATION'];
-                console.log('---getNationAction---', this.nationAction)
+               // Object.assign(this.regNationAction,this.nationAction);
+                this.regNationAction = this.nationAction;
+                console.log('---regNationAction---',this.regNationAction)
                 return this.nationAction;
         },
         getMermberAction(){
                 this.merchantAction = this.$store.getters['GET_MEMBER_LIST'];
-                console.log('---getMermberAction---',  this.merchantAction)
+                console.log('---getMermberAction---',this.merchantAction);
                 return this.merchantAction;
         }
     },
@@ -216,6 +241,9 @@
                 "user.province":ths.form['province'],
                 "user.city":ths.form['city'],
                 "user.address":ths.form['detailAddr'],
+                "user.current_province":ths.form['nowProvince'],
+                "user.current_city":ths.form['nowCity'],
+                "user.current_address":ths.form['nowDetailAddr'],
                 "user.contact_name":ths.form['urgencyPerson'],
                 "user.contact_phone":ths.form['urgencyPersonTel'],
                 "user.job_id":ths.form['workTypeCode'],
@@ -227,7 +255,7 @@
             };
             if(!ths.form['name']){
               ths.$mint.Toast({
-                  message:'用户名不能为空',
+                  message:'姓名不能为空',
                   position:'center'
               });
                 return false;
@@ -274,7 +302,22 @@
             }
             if(!ths.form['detailAddr']){
                 ths.$mint.Toast({
-                    message:'详细地址不能为空',
+                    message:'户籍详细地址不能为空',
+                    position:'center'
+                });
+                return false;
+            }
+
+            if(!ths.form['nowAddress']){
+                ths.$mint.Toast({
+                    message:'本市地址不能为空',
+                    position:'center'
+                });
+                return false;
+            }
+            if(!ths.form['nowDetailAddr']){
+                ths.$mint.Toast({
+                    message:'本市详细地址不能为空',
                     position:'center'
                 });
                 return false;
@@ -341,7 +384,9 @@
             ths.$api.post('em/save',saveForm).then((rets)=>{
               console.log(rets)
                 if(rets.status === 'OK'){
-                    ths.$router.push({'path':'registerNote'})
+                  //  ths.$router.push({'path':'/registerNote'})registerInfo
+                  //  ths.$router.push({'path':'/registerInfo'})
+                    window.location.href=ths.$api.getRoot()+'wx?symbol=register';
                 }else{
                     ths.$mint.Toast({
                         message:rets.message,
@@ -373,7 +418,17 @@
           this.form.workTypeCode= value
         },
         openMerchant(){
-            this.$refs.changeMerchantPicker.open()
+            this.$refs.changeMerchantPicker.open();
+            this.getMermberAction;
+            if(this.form.businessText){
+                let reg = new RegExp("^"+this.form.businessText+"$");
+                console.log(this.form.businessText,this.merchantAction);
+                let tempArr= this.merchantAction.filter(k => reg.test(k.name));
+                console.log('tempArr---',tempArr);
+                this.regMerchantAction = tempArr
+            }else{
+                this.regMerchantAction =[];
+            }
         },
         merchantChange(picker,value){
             let ths = this;
@@ -406,10 +461,43 @@
             this.form.address = picker.province.name +"-"+picker.city.name+"-"+picker.area.name
           }
           this.showAddress = false;
+        },
 
+        changeNowCity:function () {
+            this.showNowAddress = true;
+        },
+        nowHandleChange: function (picker) {
+            console.log('handleChange-----',picker)
+            if(picker){
+                if(picker.province){
+                    this.form.nowProvince = picker.province.code;
+                }
+                if(picker.city){
+                    this.form.nowCity = picker.city.code;
+                }
+                if(picker.area){
+                    this.form.nowArea = picker.area.code;
+                }
+                this.form.nowAddress = picker.province.name +"-"+picker.city.name+"-"+picker.area.name
+            }
+            this.showNowAddress = false;
         },
         changeNationOpen(){
-          this.$refs.changeNationPicker.open()
+            this.$refs.changeNationPicker.open();
+            this.getNationAction;
+        },
+        nationInput(){
+            this.$refs.changeNationPicker.open();
+            this.getNationAction;
+            if(this.form.nationText){
+                let reg = new RegExp(this.form.nationText)
+                console.log('reg----',reg)
+                let tempArr= this.nationAction.filter(k => reg.test(k.name));
+                console.log('tempArr---',tempArr)
+                this.regNationAction = tempArr
+            }else{
+                this.regNationAction = this.nationAction;
+            }
         },
         nationChange(picker,value){
             console.log(picker,value)
@@ -550,7 +638,12 @@
     created(){
         let ths = this;
         ths.pageHeight = document.body.clientHeight;
+
+        ths.$store.dispatch('SET_WORK_TYPE');
+        ths.$store.dispatch('SET_NATION');
+        ths.$store.dispatch('SET_MEMBER_LIST');
     },
+
     mounted: function () {
 
         let ts = this;
@@ -596,13 +689,12 @@
                     }
                 });
                 break;
-            case '1':
-                ts.$router.push({'path':'/registerNote'});
+//            case '1':
+//                ts.$router.push({'path':'/registerInfo'});
             case '2':
+                ts.$router.push({'path':'/registerInfo',query:{status:Status}});
                 break;
             case '3':
-                break;
-            case '4':
                 ts.$router.push({'path':'/registerInfo',query:{status:Status}});
                 break;
         }
@@ -644,6 +736,9 @@
         padding: 0;
         background-image: none;
       }
+    }
+    .bussiness-btn{
+      width: 120px;
     }
   }
     .camera-content{

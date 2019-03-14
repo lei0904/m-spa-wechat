@@ -2,18 +2,20 @@
   <div class="order">
     <div class="order-content">
       <div
-        v-infinite-scroll="loadMore"
-        infinite-scroll-disabled="loading"
-        infinite-scroll-distance="10"
+        :v-infinite-scroll="loadMore"
+        :infinite-scroll-disabled="loading"
+        :infinite-scroll-distance="10"
+        :infinite-scroll-immediate-check = "false"
         class="order-list-wrap"
         :style="{ height: pageHeight + 'px' }"
       >
         <div v-for="item in list" class="item" @click="orderDetail(item)">
-          <div class="item-content">{{item.content}}</div>
-          <div class="price">¥{{item.price}}</div>
+          <div class="item-content">{{item.mer_name}}</div>
+          <div class="price">¥{{item.money/100|fmtMoney}}</div>
           <div class="list-status" >
             <span  class="unpaid" v-if="item.status == 0">待支付</span>
-            <span class="paid" v-else>已支付</span>
+            <span class="paid" v-if="item.status == 1">已支付</span>
+            <span  class="unpaid" v-if="item.status == 2">支付失败</span>
           </div>
         </div>
         <div class="list-empty" v-if="!list.length">
@@ -29,6 +31,7 @@
   </div>
 </template>
 <script>
+  import filter from  '../components/Filters/filters'
   export default {
     data() {
       return {
@@ -39,26 +42,29 @@
         pageHeight:0,
       };
     },
+    filters:filter,
     methods: {
       loadMore() {
-        this.loading = true;
-        setTimeout(() => {
-            console.log('----')
-        //  let last = this.list[this.list.length - 1];
-          for (let i = 1; i <= 10; i++) {
-               let params = {
-                   content:'酒吧行业从业人员培训',
-                   price:'200',
-                   status:Math.floor(Math.random()*2)
-               }
-            this.list.push(params);
-          }
-          this.loading = false;
-        }, 2500);
+          let ths = this;
+          ths.loading = true;
+          let openid = ths.$store.getters['GET_OPENID'];
+          ths.$api.get('wx/orderList',{openid:openid}).then((ret)=>{
+              ths.loading = false;
+              console.log('ret---',ret)
+              if(ret.status === 'OK'){
+                  ths.list = ret.data;
+              }else{
+                  ths.$mint.Toast({
+                      message:ret.message,
+                      position:'center'
+                  })
+              }
+          })
       },
       orderDetail(item){
+          console.log('item---',item)
           if(item.status == 0){
-              this.$router.push({'path':'/buyTextBook'})
+              this.$router.push({'path':'/buyTextBook',query:item})
           }
       }
     },

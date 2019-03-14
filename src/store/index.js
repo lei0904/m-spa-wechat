@@ -8,6 +8,7 @@ import nationData from './modules/nationData.js'
 import questionData from './modules/questionData.js'
 import merListData from './modules/merListData.js'
 import openId from './modules/openId.js'
+import getPaperInfo from './modules/getPaperInfo.js'
 
 
 const debug = process.env.NODE_ENV !== 'production';
@@ -20,7 +21,8 @@ export default new Vuex.Store({
       jobTypeData,
       merListData,
       questionData,
-      openId
+      openId,
+      getPaperInfo
   },
   strict: debug,
   //  plugins: debug ? [Logger()] : []

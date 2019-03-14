@@ -5,6 +5,7 @@ import Router from 'vue-router'
 const Index = resolve => require(['@/views/Index'], resolve);
 
 const ExamIndex = resolve => require(['@/views/ExamIndex'], resolve);
+const ExamTypeOption = resolve => require(['@/views/ExamTypeOption'], resolve);
 const Exam = resolve => require(['@/views/Exam'], resolve);
 const ExamResult = resolve => require(['@/views/ExamResult'], resolve);
 const ExamRecord = resolve => require(['@/views/ExamRecord'], resolve);
@@ -23,6 +24,11 @@ const TrainingExams = resolve => require(['@/views/TraningExam'], resolve);
 const TraningCollected = resolve => require(['@/views/TraningCollected'], resolve);
 
 
+const Attachment = resolve => require(['@/views/Attachment'], resolve);
+
+const test = resolve => require(['@/views/test'], resolve);
+
+
 
 
 
@@ -33,70 +39,127 @@ let router = new Router({
     {
       path: '/',
       component: Index,
-      title: '首页'
+      name:'首页',
+      meta:{
+          title: '首页'
+      }
     },
     {
         path: '/examIndex',
         component: ExamIndex,
-        title: '培训考核首页'
+        meta:{
+            title: '在线考试'
+        }
+    },
+    {
+        path: '/examTypeOption',
+        component: ExamTypeOption,
+        meta:{
+            title: '培训考核类型'
+        }
     },
     {
       path: '/exams',
       component: Exam,
-      title: '培训学习'
+        meta:{
+            title: '培训学习',
+        }
     },
     {
         path: '/examResult',
         component: ExamResult,
-        title: '考试结果'
+        meta:{
+            title: '考试结果',
+        }
     },
     {
         path: '/examRecord',
         component: ExamRecord,
-        title: '考试记录'
+        meta:{
+            title: '考试记录',
+        }
     },
     {
       path: '/register',
       component: Register,
-      title: '实名认证'
+        meta:{
+            title: '实名认证',
+        }
     },
     {
       path: '/registerNote',
       component: RegisterNote,
-      title: '认证审核'
+        meta:{
+            title: '认证审核',
+        }
     },
     {
       path: '/registerInfo',
       component: RegisterInfo,
-      title: '认证信息'
+        meta:{
+            title: '在线报名',
+        }
     },
     {
       path: '/order',
       component: Order,
-      title: '我的订单'
+        meta:{
+            title: '我的订单',
+        }
     },
     {
         path: '/buyTextBook',
         component: BuyTextBook,
-        title: '购买教材'
+        meta:{
+            title: '购买教材',
+        }
     },
     {
         path: '/trainingIndex',
         component: TrainingIndex,
-        title: '购买教材'
+        meta:{
+            title: '培训学习',
+        }
     },
     {
         path: '/trainingExam',
         component: TrainingExams,
-        title: '培训练习'
+        meta:{
+            title: '培训练习',
+        }
     },
     {
         path: '/traningCollected',
         component: TraningCollected,
-        title: '我的收藏'
+        meta:{
+            title: '我的收藏',
+        }
     },
+    {
+        path: '/attachment',
+        component: Attachment,
+        meta:{
+            title: '培训讲义'
+        }
+    },
+
+   {
+       path: '/test',
+       component: test,
+       meta:{
+           title: '测试',
+       }
+   },
   ]
 });
 
+router.beforeEach((to,from,next)=>{
+    console.log(to,from)
+    if(to.meta.title){
+        document.title = to.meta.title
+    }
+    next();
+
+})
 
 export default router

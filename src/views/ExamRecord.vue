@@ -5,14 +5,15 @@
                     v-infinite-scroll="loadMore"
                     :infinite-scroll-disabled="loading"
                     :infinite-scroll-distance="10"
+                    :infinite-scroll-immediate-check = "false"
                     class="exam-list-wrap"
                     :style="{ height: pageHeight + 'px' }"
             >
-                <div v-for="item in list" class="item" @click="orderDetail(item)">
-                    <div class="item-content">{{item.examDate}}</div>
-                    <div class="price">{{item.score||0}}分</div>
+                <div v-for="item in list" class="item" >
+                    <div class="item-content">{{item.exam_date}}</div>
+                    <div class="price">{{item.total||0}}分</div>
                     <div class="list-status" >
-                        <span  class="paid" v-if="item.score >= 60">通过</span>
+                        <span  class="paid" v-if="item.result == 1">通过</span>
                         <span class="unpaid" v-else>未通过</span>
                     </div>
                 </div>
@@ -24,7 +25,6 @@
                     <mt-spinner type="fading-circle"></mt-spinner>
                     加载中...
                 </p>
-                <p v-show ="!loading"  class="loading-content">不小心露底啦!</p>
             </div>
         </div>
     </div>
@@ -42,26 +42,20 @@
         },
         methods: {
             loadMore() {
-                this.loading = true;
-                setTimeout(() => {
-                    console.log('----')
-                    //  let last = this.list[this.list.length - 1];
-                    for (let i = 1; i <= 10; i++) {
-                        let params = {
-                            examDate:'8.30',
-                            score:((Math.random()*100)+1).toFixed(2),
-                            status:Math.floor(Math.random()*2)
-                        }
-                        this.list.push(params);
-                    }
-                    this.loading = false;
-                }, 2500);
+                let ths = this;
+                ths.loading = true;
+                let openid = ths.$store.getters['GET_OPENID']
+                ths.$api.get('check/results',{openid:openid}).then((rets)=>{
+                        console.log('results----',rets)
+                    ths.list = rets.data;
+                    ths.loading = false;
+                })
             },
-            orderDetail(item){
-                if(item.status == 0){
-                    this.$router.push({'path':'/buyTextBook'})
-                }
-            }
+//            orderDetail(item){
+//                if(item.status == 0){
+//                    this.$router.push({'path':'/buyTextBook'})
+//                }
+//            }
         },
         mounted: function () {
             this.pageHeight = document.body.clientHeight;

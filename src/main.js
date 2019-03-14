@@ -64,16 +64,22 @@ Ces.ready(function () {
     render: h => h(App),
     methods:{},
     created(){
-        this.$store.dispatch('SET_WORK_TYPE');
-        this.$store.dispatch('SET_NATION');
-        this.$store.dispatch('SET_MEMBER_LIST');
-
-
+        let ths = this;
+        ths.$store.dispatch('SET_WORK_TYPE');
+        ths.$store.dispatch('SET_NATION');
+        ths.$store.dispatch('SET_MEMBER_LIST');
+        let str = window.location.href;
+        console.log('str---',str.split("?"))
+        let _tempStr ="",_temp =[];
+        let openid='';
+        if(str.split("?").length>1){
+            _tempStr = str.split("?")["1"];
+            _temp =_tempStr.split('&');
+            openid =  _temp[0].substr(7);
+        }
+        ths.$store.commit('SET_OPENID',openid);
     },
   });
-
-
-
 });
 if (module.hot) {
   module.hot.accept();

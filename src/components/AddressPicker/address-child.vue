@@ -11,13 +11,13 @@
               @click.stop="confirm">{{ confirmText }}</span>
       </div>
       <div class="province pickerWrapper">
-        <mt-picker :slots="provinces" @change="onProvinceChange" value-key="name"></mt-picker>
+        <mt-picker :slots="provinces"  value-key="name" @change="onProvinceChange"></mt-picker>
       </div>
       <div class="city pickerWrapper">
-        <mt-picker :slots="citys" @change="onCityChange" value-key="name"></mt-picker>
+        <mt-picker :slots="citys"  value-key="name" @change="onCityChange"></mt-picker>
       </div>
       <div class="area pickerWrapper">
-        <mt-picker :slots="areas" @change="onAreaChange" value-key="name"></mt-picker>
+        <mt-picker :slots="areas"  value-key="name" @change="onAreaChange"></mt-picker>
       </div>
    </div>
   </div>
@@ -27,6 +27,7 @@
   import {CITY_DATA} from './cityData'  //引入cityData数据
 
   export default {
+    name: 'address-child',
     computed: {
       result() {
     /*    let area = '';
@@ -67,26 +68,29 @@
       confirmText: {
         type: String,
         default: '确定'
+      },
+      cover:{
+          type:Object,
+          default:{}
       }
     },
-    name: 'address-child',
     data() {
       return {
         visibleFlag: false,
         attr:"",
         attrCode:"",
-        province:{
-          name:'北京市',
-          code:'110000'
-        },
-        city:{
-          name:'市辖区',
-          code:'110100'
-        },
-        area:{
-          name:'东城区',
-          code:'110101'
-        },
+          province:{
+              name:'上海市',
+              code:'310000'
+          },
+          city:{
+              name:'市辖区',
+              code:'310100'
+          },
+          area:{
+              name:'黄浦区',
+              code:'310101'
+          },
         flag:0, //最开始省市区那三个picker会初始化调用change事件，但是此时没有省市区数据，因此会报错，
                 //所以以这个标识符来控制当时第一次初始化时调用change事件时直接return
         provinces: [
@@ -105,7 +109,7 @@
         citys: [
           {
             flex: 1,
-            values: this._getCity('北京市'),
+            values: this._getCity('上海市'),
             className: 'slot1',
             textAlign: 'center'
           },
@@ -118,7 +122,7 @@
         areas: [
           {
             flex: 1,
-            values: this._getArea('北京市','市辖区'),
+            values: this._getArea('上海市','市辖区'),
             className: 'slot1',
             textAlign: 'center'
           }
@@ -185,10 +189,21 @@
       _getProvince(){
         let province=[]
         CITY_DATA.forEach(function(item,index){
-          let obj={}
-          obj.code=item.code
-          obj.name=item.name
-          province.push(obj)
+          let obj={};
+          let ths = this;
+//          obj.code=item.code
+//          obj.name=item.name
+//          province.push(obj)
+            if(item.code === ths.cover.code){
+                obj.code=item.code;
+                obj.name=item.name;
+                province.push(obj)
+            }
+            if(!ths.cover.code){
+                obj.code=item.code;
+                obj.name=item.name;
+                province.push(obj)
+            }
         })
         return province
       },

@@ -11,7 +11,12 @@
             </div>
             <div class="item" @click="toPage(3)">
                 <i class="icon  icon-collect"></i>
-                <div>我的收藏</div></div>
+                <div>我的收藏</div>
+            </div>
+            <div class="item" @click="toPage(4)">
+                <i class="icon  icon-attachment"></i>
+                <div>培训讲义</div>
+            </div>
         </div>
     </div>
 </template>
@@ -34,6 +39,9 @@
                     case 3:
                         this.$router.push({'path':'/trainingExam',query:{model:2}});
                     break;
+                    case 4:
+                        this.$router.push({'path':'/attachment'});
+                        break;
                 }
             }
         },
@@ -58,15 +66,18 @@
     .training-index{
         .training-content{
             display: flex;
+            flex-wrap: wrap;
+            width: 360px;
+            margin: auto;
             padding: 30px 10px;
             .item{
-                flex: 1;
                 justify-content: flex-start;
                 margin-right: 10px;
                 margin-bottom: 10px;
                 background: #fff;
                 border-radius: 5px;
                 height: 80px;
+                width: 80px;
                 text-align: center;
                 font-size: 13px;/*no*/
                 color: #1296db;
@@ -90,6 +101,12 @@
                 }
                 .icon-collect{
                     background: url("../assets/image/icon-collect.png");
+                    background-repeat: no-repeat;
+                    background-size: 35px 35px;
+                    background-position: center center;
+                }
+                .icon-attachment{
+                    background: url("../assets/image/icon-attachment.png");
                     background-repeat: no-repeat;
                     background-size: 35px 35px;
                     background-position: center center;

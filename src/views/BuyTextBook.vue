@@ -2,7 +2,7 @@
     <div class="buyTextbook" >
         <div class="order-info" :style="{height:contentHeight+'px'}">
             <div class="order-title">订单信息</div>
-            <div class="order-content">酒吧行酒吧行业人员培训酒吧行业人员培训酒吧行业人员培训酒吧行业人员培训酒吧行业人员培训酒吧行业人员培训业人员培训</div>
+            <div class="order-content">{{info.merchant}}</div>
             <div class="item teach-cycle">
                 <label>培训期</label>
                 <span>不限次数</span>
@@ -14,24 +14,57 @@
         </div>
         <div class="pay-content">
             <div class="pay-infos">
-                <div class="total"><span>总计:</span><span class="price">¥200</span></div>
-                <div class="infos">您已选择 酒吧行业从业人员培训您已选择 酒吧行业从业人员培训您已选择 酒吧行业从业人员培训您已选择 酒吧行业从业人员培训您已选择 酒吧行业从业人员培训</div>
+                <div class="total"><span>总计:</span><span class="price">¥{{info.money/100| fmtMoney }}</span></div>
+                <div class="infos"></div>
             </div>
-            <div class="pay-btn">确认支付</div>
+            <div class="pay-btn" @click="toPay">确认支付</div>
         </div>
     </div>
 </template>
 <script>
+    import filter from  '../components/Filters/filters'
     export default {
         data() {
             return {
-                contentHeight:0
+                contentHeight:0,
+                info:{}
             };
         },
+
+        filters:filter,
         methods: {
+            toPay(){
+                let ths = this;
+                let params ={
+                    id:ths.info.orderId
+                }
+                ths.$api.post('wx/pay',params).then((ret)=>{
+                    eval(ret);
+                })
+            }
         },
         mounted: function () {
-            this.contentHeight = document.body.clientHeight - 185;
+            let  ths = this;
+            ths.contentHeight = document.body.clientHeight - 185;
+            console.log('----query',ths.$route.query)
+
+            let openid = ths.$store.getters['GET_OPENID'];
+            let _tempData = ths.$route.query;
+            let params = {
+                openid:openid,
+                orderId:_tempData.id||_tempData.orderId
+            }
+            ths.$api.get('wx/orderDetail',params).then((ret)=>{
+                if(ret.status === 'OK'){
+                    ths.info = ret.data;
+                }else{
+                    ths.$mint.Toast({
+                        message:ret.message,
+                        position:'center'
+                    })
+                }
+            })
+
         }
     }
 
@@ -81,8 +114,8 @@
                 padding: 10px;
                 .total{
                     font-size: 20px;/*no*/
-                    height: 30px;
-                    line-height: 30px;
+                    height: 85px;
+                    line-height: 85px;
                     .price{
                         padding-left: 5px;
                         color: #ffb217;

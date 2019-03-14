@@ -1,6 +1,5 @@
-//let root = 'http://jason.s1.natapp.cc/api/';
-//let  root  = 'http://51cxgj.com/dispatch/api/';
-let  root  = 'http://coxsh.natapp1.cc/api/';
+//let  root  = 'http://coxsh.natapp1.cc/api';
+let  root  = 'https://shmyhyxh.mobilepms.com/am/api/';
 import Vue from 'vue'
 import axios from 'axios'
 import Qs from 'qs'
@@ -31,8 +30,11 @@ function api (method, url, params, loading) {
             }
         }).then(function (response) {
             if (response.status === 200) {
-                let _tempData = response.data
-                if (_tempData.status === 'OK') {
+                let _tempData = response.data;
+                console.log('response.config.url---',getRoot()+'wx/pay')
+                if(response.config.url == getRoot()+'wx/pay'){
+                    resolve(response.data)
+                }else if (_tempData.status === 'OK') {
                     resolve(_tempData)
                 }
                 else {
@@ -82,6 +84,7 @@ axios.interceptors.response.use(function (response) {
     if (loading) {
         Vue['$indicator'].close()
     }
+    console.log(response.data)
 
     return response
 })

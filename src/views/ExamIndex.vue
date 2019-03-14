@@ -1,7 +1,12 @@
 <template>
   <div class="exam-index">
       <div class="exam-desc">
-        考试规范
+        <div class="title">上海沐浴行业从业人员培训(沐浴、足浴、会所、美容美发(含桑拿))</div>
+        <div  class="standard" >
+          <div class="items" v-for="item in examsType">
+            {{item.name}}
+          </div>
+        </div>
       </div>
     <div class="exam-options">
       <div class="item" @click="toExam">
@@ -19,25 +24,39 @@
   export default {
     data() {
       return {
-          count:5
+          count:0,
+          examsType:[]
       };
     },
     methods: {
         toExam() {
             let ts = this;
-            ts.$mint.MessageBox.confirm('是否确定开启考试?考试期间:' +
-                '<div style="text-align: left">a.不可打开培训学习页面</div>' +
-                '<div style="text-align: left">b.可以断线重连，显示剩余考试时间</div>',
-                '提示').then(function () {
-                ts.$router.push({path: 'exams'})
-            })
+            ts.$router.push({path: 'examTypeOption'})
         },
         toExamRecord(){
             this.$router.push({path: '/examRecord'})
         }
     },
     mounted: function () {
-
+          let ths = this;
+          let openid = ths.$store.getters['GET_OPENID'];
+          ths.$api.get('study/types',{openid:openid}).then((rets)=>{
+              console.log('rets----',rets)
+              if(rets.status === 'OK'){
+                  ths.examsType = rets.data;
+              }else{
+                  ths.$mint.Toast({
+                      message:rets.message,
+                      position:'center'
+                  })
+              }
+          })
+        ths.$api.get('check/results',{openid:openid}).then((rets)=>{
+            console.log('results----',rets)
+            if(rets.status == 'OK'){
+                ths.count = rets.data.length;
+            }
+        })
     }
   }
 
@@ -48,6 +67,31 @@
     .exam-desc{
       height: 288px;
       padding: 10px;
+      background-color: #1296db;
+      color: #fff;
+      .title{
+        text-align: center;
+      }
+      .standard{
+        margin: 20px 0;
+        display: flex;
+        flex: 1;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        .items{
+          font-size: 14px;/*no*/
+          border: 1px solid #fff;
+          margin: 20px;
+          padding: 20px;
+          text-align: center;
+          border-radius: 5px;
+          .icon{
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
     }
     .exam-options{
       margin: 20px 0;

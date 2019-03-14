@@ -4,7 +4,9 @@
               pop-transition="popup-fade"
               position="bottom"
               class="cui-attr-picker"
-              v-model="visible">
+              v-model="visible"
+              :modal="popupVisible"
+    >
       <mt-picker ref="picker"
               :slots="attrSlots"
                   @change="onAttrChange"
@@ -21,7 +23,8 @@
   .cui-attr-picker {
     width: 100%;
   }
-  .cui-attr-picker .picker-slot-wrapper, .cui-attr-picker .picker-item {
+  .cui-attr-picker .picker-slot-wrapper,
+  .cui-attr-picker .picker-item {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
@@ -33,7 +36,7 @@
     width: 50%;
     text-align: center;
     line-height: 40px;
-    font-size: 16px; /*px*/
+    font-size: 16px; /*no*/
     color: #26a2ff;
   }
   .cui-attr-picker-cancel {
@@ -61,14 +64,26 @@
       },
       listArr:{
         type:Array
+      },
+      popupVisible:{
+          type:Boolean,
+          default:true
       }
     },
     data: function() {
+        let _tempValue=[];
+        if(this.listArr>0){
+            _tempValue =this.listArr
+        }else{
+            _tempValue=[
+                {"name":'暂无数据',"code":'-'}
+            ];
+        }
       return {
         visible: false,
         attrSlots: [{
           flex: 1,
-          values:this.listArr
+          values:_tempValue
         }],
         valueKey: 'name',
         attr:"",
@@ -84,6 +99,9 @@
                 defaultIndex: 0,
                 className: 'slot1'
             })
+        },
+        popupVisible(v){
+            console.log('v--------',v)
         }
     },
     methods: {
@@ -98,8 +116,8 @@
       },
 
       open: function(e) {
-        this.visible = true;
-        this.$refs['popup'].currentValue = true;
+          this.visible = true;
+          this.$refs['popup'].currentValue = true;
       },
 
       close: function() {

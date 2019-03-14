@@ -1,16 +1,18 @@
 <template>
-    <div class="register" :style="'height:'+pageHeight+'px'">
+    <div class="register-info" :style="'height:'+pageHeight+'px'">
         <div class="register-title">个人信息</div>
         <form  action="javascript:void(0)">
-            <mt-cell title="用户名"  v-model="form.name"></mt-cell>
+            <mt-cell title="姓名"  v-model="form.name"></mt-cell>
             <mt-cell title="性别">
              <span v-if="form.gender == '1'">男</span>
              <span v-else>女</span>
             </mt-cell>
             <mt-cell title="民族" v-model="form.nation_name"></mt-cell>
             <mt-cell title="手机号" v-model="form.phone"></mt-cell>
-            <mt-cell title="户籍地" v-model="form.household" :disabled=true></mt-cell>
-            <mt-cell title="详细地址"   v-model="form.address"></mt-cell>
+            <mt-cell title="户籍地区" v-model="form.household" :disabled=true></mt-cell>
+            <mt-cell title="户籍详细地址"   v-model="form.address"></mt-cell>
+            <mt-cell title="本市地区" v-model="form.liveaddress" :disabled=true></mt-cell>
+            <mt-cell title="本市详细地址"   v-model="form.current_address"></mt-cell>
             <mt-cell title="紧急联系人"  v-model="form.contact_name"></mt-cell>
             <mt-cell title="紧急联系号码" v-model="form.contact_phone"></mt-cell>
             <mt-cell title="工种" v-model="form.job_name"></mt-cell>
@@ -24,11 +26,12 @@
         <div class="trainForm">
             <div class="register-title">培训信息</div>
             <form action="avascript:void(0)" >
-                <mt-cell title="状态">
+                <mt-cell title="状态" >
                      <span v-if="Status == 1">待认证</span>
                      <span v-if="Status == 2">待付款</span>
                      <span v-if="Status == 3">培训中</span>
-                    <span  v-if="Status == 4">已审核</span>
+                    <span  v-if="Status == 4">已通过</span>
+                    <span  v-if="Status == 5">已发卡</span>
                 </mt-cell>
                 <mt-cell title="我的订单"  @click.native="toOrder"  is-link ></mt-cell>
             </form>
@@ -58,6 +61,8 @@
                     mer_address:'',
                     job_name:'',
                     industry:'',
+                    liveaddress:'',
+                    current_address:''
                 },
                 isShow:false,
                 showAddress:false,
@@ -105,15 +110,29 @@
                 this.$router.push({'path':'/order'})
             },
             toBuy(){
-                this.$router.push({'path':'/BuyTextBook'})
+                let ths =this;
+                let openid = ths.$store.getters['GET_OPENID'];
+                ths.$api.get('wx/order',{openid:openid}).then((ret)=>{
+                    console.log('wx/order----',ret)
+                    if(ret.status === 'OK'){
+                        this.$router.push({'path':'/BuyTextBook',query:ret.data})
+                    }else{
+                        ths.$mint.Toast({
+                            message:ret.message,
+                            position:'center'
+                        })
+                    }
+                });
             } ,
+            toPay(){
+
+            }
         },
         created(){
             let ths = this;
             ths.pageHeight = document.body.clientHeight;
         },
         mounted: function () {
-
             let ths = this;
             ths.Status = ths.$route.query.status;
             console.log('----Status', ths.Status)
@@ -140,8 +159,13 @@
 </script>
 
 <style lang="scss">
-    .register{
+    .register-info{
         overflow-y: scroll;
+        .mint-cell-text {
+            vertical-align: middle;
+            min-width: 110px;
+            display: inline-block;
+        }
         .register-title{
             margin: 10px;
             font-size: 20px;/*no*/
