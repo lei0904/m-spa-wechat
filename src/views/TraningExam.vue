@@ -203,6 +203,7 @@
             },
             loadExam(changeId){
                 let ts = this;
+                debugger
                 let params = {
                     openid:ts.getOpenId,
                     question:changeId||ts.examsList['question'].id,
@@ -229,9 +230,14 @@
                             ts.showConfirm = false;
                         }
 
+                        ts.$nextTick(function () {
+                            ts.checkedNames=[];
+                        })
                         if( ts.examsList.question.option_type == 2){
                             ts.userCheckBoxAnswer = rets.data.answer;
-                            ts.checkedNames = rets.data.answer.split(',')
+                            if(ts.checkedNames.length>0){
+                                ts.checkedNames = rets.data.answer.split(',')
+                            }
                         }else{
                             ts.userAnswer =rets.data.answer;
                         }

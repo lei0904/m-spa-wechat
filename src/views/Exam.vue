@@ -117,7 +117,14 @@
                       ts.isEmpty =false;
                       ts.isSlideLeft =true;
                   }
-
+                ts.examsList={
+                      question:{},
+                      options:{},
+                      answer:null
+                  };
+                  ts.$nextTick(function() {
+                      ts.checkedNames=[];
+                  });
                 ts.examsList = rets.data;
               }else{
                   ts.$mint.Toast({
@@ -139,12 +146,31 @@
                 time:Math.floor(ths.times / 60),
                 answer:ths.examsList.question.option_type == 2 ? ths.userCheckBoxAnswer:ths.userAnswer
             }
+
+            if(ths.examsList.question.option_type == 2 && ths.userCheckBoxAnswer.length<=0){
+                ths.$mint.Toast({
+                    message:'多选题不能为空',
+                    position:'center'
+                })
+                ths.isSlideLeft = false;
+                return false;
+            }
+
+            if(ths.examsList.question.option_type != 2 && !ths.userAnswer){
+                ths.$mint.Toast({
+                    message:'单选题不能为空',
+                    position:'center'
+                })
+                ths.isSlideLeft = false;
+                return false;
+            }
+
             console.log('showConfirm---',params);
             ths.$api.get('check/submit',params).then((rets)=>{
                 console.log('----rets-----',rets)
                 if(rets.status === 'OK'){
-                    ths.userCheckBoxAnswer=[];
-                    ths.userAnswer=null;
+                        ths.userCheckBoxAnswer=[];
+                        ths.userAnswer=null;
                   if( ths.examsList.index < ths.examsItem.total && ths.examsList.index >0){
                       ths.loadExam();
                   }else{
@@ -165,7 +191,7 @@
             th.checkedNames.filter(item => item)
             let arr   =  th.checkedNames.filter(item => item)
             th.userCheckBoxAnswer = arr.sort().join(',');
-            console.log("-----th.userCheckBoxAnswer----",th.userCheckBoxAnswer);
+            console.log("-----th.checkBoxAnswer----",th.userCheckBoxAnswer);
         },
       resultSub(item){
         console.log('resutlSub---',item)

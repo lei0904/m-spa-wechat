@@ -68,10 +68,6 @@
       confirmText: {
         type: String,
         default: '确定'
-      },
-      cover:{
-          type:Object,
-          default:{}
       }
     },
     data() {
@@ -190,11 +186,11 @@
         let province=[]
         CITY_DATA.forEach(function(item,index){
           let obj={};
-          let ths = this;
-//          obj.code=item.code
-//          obj.name=item.name
-//          province.push(obj)
-            if(item.code === ths.cover.code){
+          //let ths = this;
+          obj.code=item.code
+          obj.name=item.name
+          province.push(obj)
+          /*  if(item.code === ths.cover.code){
                 obj.code=item.code;
                 obj.name=item.name;
                 province.push(obj)
@@ -203,9 +199,9 @@
                 obj.code=item.code;
                 obj.name=item.name;
                 province.push(obj)
-            }
+            }*/
         })
-        return province
+          return province
       },
       //根据省份得到城市数据
       _getCity(province){
@@ -243,7 +239,7 @@
         })
         if(area.length==0){ //如果没有区域数据则第三个picker显示的内容
           area.push({
-            name:'没有',
+            name:'-',
             code:'000000'
           })
         }

@@ -39,6 +39,92 @@ export  default ({
 
 export const CITY_DATA = [
   {
+        "code": "310000",
+        "name": "上海市",
+        "children": [
+            {
+                "code": "310100",
+                "name": "市辖区",
+                "children": [
+                    {
+                        "code": "310101",
+                        "name": "黄浦区"
+                    },
+                    {
+                        "code": "310104",
+                        "name": "徐汇区"
+                    },
+                    {
+                        "code": "310105",
+                        "name": "长宁区"
+                    },
+                    {
+                        "code": "310106",
+                        "name": "静安区"
+                    },
+                    {
+                        "code": "310107",
+                        "name": "普陀区"
+                    },
+                    {
+                        "code": "310108",
+                        "name": "闸北区"
+                    },
+                    {
+                        "code": "310109",
+                        "name": "虹口区"
+                    },
+                    {
+                        "code": "310110",
+                        "name": "杨浦区"
+                    },
+                    {
+                        "code": "310112",
+                        "name": "闵行区"
+                    },
+                    {
+                        "code": "310113",
+                        "name": "宝山区"
+                    },
+                    {
+                        "code": "310114",
+                        "name": "嘉定区"
+                    },
+                    {
+                        "code": "310115",
+                        "name": "浦东新区"
+                    },
+                    {
+                        "code": "310116",
+                        "name": "金山区"
+                    },
+                    {
+                        "code": "310117",
+                        "name": "松江区"
+                    },
+                    {
+                        "code": "310118",
+                        "name": "青浦区"
+                    },
+                    {
+                        "code": "310120",
+                        "name": "奉贤区"
+                    }
+                ]
+            },
+            {
+                "code": "310200",
+                "name": "县",
+                "children": [
+                    {
+                        "code": "310230",
+                        "name": "崇明县"
+                    }
+                ]
+            }
+        ]
+    },
+  {
   "code": "110000",
   "name": "北京市",
   "children": [
@@ -211,10 +297,6 @@ export const CITY_DATA = [
         "name": "石家庄市",
         "children": [
           {
-            "code": "130101",
-            "name": "市辖区"
-          },
-          {
             "code": "130102",
             "name": "长安区"
           },
@@ -308,10 +390,7 @@ export const CITY_DATA = [
         "code": "130200",
         "name": "唐山市",
         "children": [
-          {
-            "code": "130201",
-            "name": "市辖区"
-          },
+
           {
             "code": "130202",
             "name": "路南区"
@@ -374,10 +453,7 @@ export const CITY_DATA = [
         "code": "130300",
         "name": "秦皇岛市",
         "children": [
-          {
-            "code": "130301",
-            "name": "市辖区"
-          },
+
           {
             "code": "130302",
             "name": "海港区"
@@ -412,10 +488,7 @@ export const CITY_DATA = [
         "code": "130400",
         "name": "邯郸市",
         "children": [
-          {
-            "code": "130401",
-            "name": "市辖区"
-          },
+
           {
             "code": "130402",
             "name": "邯山区"
@@ -498,10 +571,7 @@ export const CITY_DATA = [
         "code": "130500",
         "name": "邢台市",
         "children": [
-          {
-            "code": "130501",
-            "name": "市辖区"
-          },
+
           {
             "code": "130502",
             "name": "桥东区"
@@ -584,10 +654,7 @@ export const CITY_DATA = [
         "code": "130600",
         "name": "保定市",
         "children": [
-          {
-            "code": "130601",
-            "name": "市辖区"
-          },
+
           {
             "code": "130602",
             "name": "新市区"
@@ -694,10 +761,7 @@ export const CITY_DATA = [
         "code": "130700",
         "name": "张家口市",
         "children": [
-          {
-            "code": "130701",
-            "name": "市辖区"
-          },
+
           {
             "code": "130702",
             "name": "桥东区"
@@ -773,10 +837,6 @@ export const CITY_DATA = [
         "name": "承德市",
         "children": [
           {
-            "code": "130801",
-            "name": "市辖区"
-          },
-          {
             "code": "130802",
             "name": "双桥区"
           },
@@ -826,10 +886,6 @@ export const CITY_DATA = [
         "code": "130900",
         "name": "沧州市",
         "children": [
-          {
-            "code": "130901",
-            "name": "市辖区"
-          },
           {
             "code": "130902",
             "name": "新华区"
@@ -901,10 +957,6 @@ export const CITY_DATA = [
         "name": "廊坊市",
         "children": [
           {
-            "code": "131001",
-            "name": "市辖区"
-          },
-          {
             "code": "131002",
             "name": "安次区"
           },
@@ -950,10 +1002,6 @@ export const CITY_DATA = [
         "code": "131100",
         "name": "衡水市",
         "children": [
-          {
-            "code": "131101",
-            "name": "市辖区"
-          },
           {
             "code": "131102",
             "name": "桃城区"
@@ -1010,10 +1058,7 @@ export const CITY_DATA = [
         "code": "140100",
         "name": "太原市",
         "children": [
-          {
-            "code": "140101",
-            "name": "市辖区"
-          },
+
           {
             "code": "140105",
             "name": "小店区"
@@ -1060,10 +1105,6 @@ export const CITY_DATA = [
         "code": "140200",
         "name": "大同市",
         "children": [
-          {
-            "code": "140201",
-            "name": "市辖区"
-          },
           {
             "code": "140202",
             "name": "城区"
@@ -1114,10 +1155,7 @@ export const CITY_DATA = [
         "code": "140300",
         "name": "阳泉市",
         "children": [
-          {
-            "code": "140301",
-            "name": "市辖区"
-          },
+
           {
             "code": "140302",
             "name": "城区"
@@ -1144,10 +1182,6 @@ export const CITY_DATA = [
         "code": "140400",
         "name": "长治市",
         "children": [
-          {
-            "code": "140401",
-            "name": "市辖区"
-          },
           {
             "code": "140402",
             "name": "城区"
@@ -1206,10 +1240,7 @@ export const CITY_DATA = [
         "code": "140500",
         "name": "晋城市",
         "children": [
-          {
-            "code": "140501",
-            "name": "市辖区"
-          },
+
           {
             "code": "140502",
             "name": "城区"
@@ -1241,10 +1272,6 @@ export const CITY_DATA = [
         "name": "朔州市",
         "children": [
           {
-            "code": "140601",
-            "name": "市辖区"
-          },
-          {
             "code": "140602",
             "name": "朔城区"
           },
@@ -1274,10 +1301,7 @@ export const CITY_DATA = [
         "code": "140700",
         "name": "晋中市",
         "children": [
-          {
-            "code": "140701",
-            "name": "市辖区"
-          },
+
           {
             "code": "140702",
             "name": "榆次区"
@@ -1328,10 +1352,6 @@ export const CITY_DATA = [
         "code": "140800",
         "name": "运城市",
         "children": [
-          {
-            "code": "140801",
-            "name": "市辖区"
-          },
           {
             "code": "140802",
             "name": "盐湖区"
@@ -1390,10 +1410,7 @@ export const CITY_DATA = [
         "code": "140900",
         "name": "忻州市",
         "children": [
-          {
-            "code": "140901",
-            "name": "市辖区"
-          },
+
           {
             "code": "140902",
             "name": "忻府区"
@@ -1456,10 +1473,6 @@ export const CITY_DATA = [
         "code": "141000",
         "name": "临汾市",
         "children": [
-          {
-            "code": "141001",
-            "name": "市辖区"
-          },
           {
             "code": "141002",
             "name": "尧都区"
@@ -1534,10 +1547,7 @@ export const CITY_DATA = [
         "code": "141100",
         "name": "吕梁市",
         "children": [
-          {
-            "code": "141101",
-            "name": "市辖区"
-          },
+
           {
             "code": "141102",
             "name": "离石区"
@@ -1602,10 +1612,7 @@ export const CITY_DATA = [
         "code": "150100",
         "name": "呼和浩特市",
         "children": [
-          {
-            "code": "150101",
-            "name": "市辖区"
-          },
+
           {
             "code": "150102",
             "name": "新城区"
@@ -1648,10 +1655,7 @@ export const CITY_DATA = [
         "code": "150200",
         "name": "包头市",
         "children": [
-          {
-            "code": "150201",
-            "name": "市辖区"
-          },
+
           {
             "code": "150202",
             "name": "东河区"
@@ -1694,10 +1698,7 @@ export const CITY_DATA = [
         "code": "150300",
         "name": "乌海市",
         "children": [
-          {
-            "code": "150301",
-            "name": "市辖区"
-          },
+
           {
             "code": "150302",
             "name": "海勃湾区"
@@ -1716,10 +1717,7 @@ export const CITY_DATA = [
         "code": "150400",
         "name": "赤峰市",
         "children": [
-          {
-            "code": "150401",
-            "name": "市辖区"
-          },
+
           {
             "code": "150402",
             "name": "红山区"
@@ -1774,10 +1772,7 @@ export const CITY_DATA = [
         "code": "150500",
         "name": "通辽市",
         "children": [
-          {
-            "code": "150501",
-            "name": "市辖区"
-          },
+
           {
             "code": "150502",
             "name": "科尔沁区"
@@ -1816,10 +1811,7 @@ export const CITY_DATA = [
         "code": "150600",
         "name": "鄂尔多斯市",
         "children": [
-          {
-            "code": "150601",
-            "name": "市辖区"
-          },
+
           {
             "code": "150602",
             "name": "东胜区"
@@ -1858,10 +1850,7 @@ export const CITY_DATA = [
         "code": "150700",
         "name": "呼伦贝尔市",
         "children": [
-          {
-            "code": "150701",
-            "name": "市辖区"
-          },
+
           {
             "code": "150702",
             "name": "海拉尔区"
@@ -1925,10 +1914,6 @@ export const CITY_DATA = [
         "name": "巴彦淖尔市",
         "children": [
           {
-            "code": "150801",
-            "name": "市辖区"
-          },
-          {
             "code": "150802",
             "name": "临河区"
           },
@@ -1962,10 +1947,7 @@ export const CITY_DATA = [
         "code": "150900",
         "name": "乌兰察布市",
         "children": [
-          {
-            "code": "150901",
-            "name": "市辖区"
-          },
+
           {
             "code": "150902",
             "name": "集宁区"
@@ -2125,10 +2107,6 @@ export const CITY_DATA = [
         "name": "沈阳市",
         "children": [
           {
-            "code": "210101",
-            "name": "市辖区"
-          },
-          {
             "code": "210102",
             "name": "和平区"
           },
@@ -2186,10 +2164,7 @@ export const CITY_DATA = [
         "code": "210200",
         "name": "大连市",
         "children": [
-          {
-            "code": "210201",
-            "name": "市辖区"
-          },
+
           {
             "code": "210202",
             "name": "中山区"
@@ -2237,10 +2212,6 @@ export const CITY_DATA = [
         "name": "鞍山市",
         "children": [
           {
-            "code": "210301",
-            "name": "市辖区"
-          },
-          {
             "code": "210302",
             "name": "铁东区"
           },
@@ -2274,10 +2245,7 @@ export const CITY_DATA = [
         "code": "210400",
         "name": "抚顺市",
         "children": [
-          {
-            "code": "210401",
-            "name": "市辖区"
-          },
+
           {
             "code": "210402",
             "name": "新抚区"
@@ -2313,10 +2281,6 @@ export const CITY_DATA = [
         "name": "本溪市",
         "children": [
           {
-            "code": "210501",
-            "name": "市辖区"
-          },
-          {
             "code": "210502",
             "name": "平山区"
           },
@@ -2346,10 +2310,7 @@ export const CITY_DATA = [
         "code": "210600",
         "name": "丹东市",
         "children": [
-          {
-            "code": "210601",
-            "name": "市辖区"
-          },
+
           {
             "code": "210602",
             "name": "元宝区"
@@ -2380,10 +2341,6 @@ export const CITY_DATA = [
         "code": "210700",
         "name": "锦州市",
         "children": [
-          {
-            "code": "210701",
-            "name": "市辖区"
-          },
           {
             "code": "210702",
             "name": "古塔区"
@@ -2418,10 +2375,7 @@ export const CITY_DATA = [
         "code": "210800",
         "name": "营口市",
         "children": [
-          {
-            "code": "210801",
-            "name": "市辖区"
-          },
+
           {
             "code": "210802",
             "name": "站前区"
@@ -2452,10 +2406,6 @@ export const CITY_DATA = [
         "code": "210900",
         "name": "阜新市",
         "children": [
-          {
-            "code": "210901",
-            "name": "市辖区"
-          },
           {
             "code": "210902",
             "name": "海州区"
@@ -2490,10 +2440,7 @@ export const CITY_DATA = [
         "code": "211000",
         "name": "辽阳市",
         "children": [
-          {
-            "code": "211001",
-            "name": "市辖区"
-          },
+
           {
             "code": "211002",
             "name": "白塔区"
@@ -2529,10 +2476,6 @@ export const CITY_DATA = [
         "name": "盘锦市",
         "children": [
           {
-            "code": "211101",
-            "name": "市辖区"
-          },
-          {
             "code": "211102",
             "name": "双台子区"
           },
@@ -2554,10 +2497,7 @@ export const CITY_DATA = [
         "code": "211200",
         "name": "铁岭市",
         "children": [
-          {
-            "code": "211201",
-            "name": "市辖区"
-          },
+
           {
             "code": "211202",
             "name": "银州区"
@@ -2593,10 +2533,6 @@ export const CITY_DATA = [
         "name": "朝阳市",
         "children": [
           {
-            "code": "211301",
-            "name": "市辖区"
-          },
-          {
             "code": "211302",
             "name": "双塔区"
           },
@@ -2630,10 +2566,7 @@ export const CITY_DATA = [
         "code": "211400",
         "name": "葫芦岛市",
         "children": [
-          {
-            "code": "211401",
-            "name": "市辖区"
-          },
+
           {
             "code": "211402",
             "name": "连山区"
@@ -2670,10 +2603,6 @@ export const CITY_DATA = [
         "code": "220100",
         "name": "长春市",
         "children": [
-          {
-            "code": "220101",
-            "name": "市辖区"
-          },
           {
             "code": "220102",
             "name": "南关区"
@@ -2720,10 +2649,7 @@ export const CITY_DATA = [
         "code": "220200",
         "name": "吉林市",
         "children": [
-          {
-            "code": "220201",
-            "name": "市辖区"
-          },
+
           {
             "code": "220202",
             "name": "昌邑区"
@@ -2767,10 +2693,6 @@ export const CITY_DATA = [
         "name": "四平市",
         "children": [
           {
-            "code": "220301",
-            "name": "市辖区"
-          },
-          {
             "code": "220302",
             "name": "铁西区"
           },
@@ -2800,10 +2722,7 @@ export const CITY_DATA = [
         "code": "220400",
         "name": "辽源市",
         "children": [
-          {
-            "code": "220401",
-            "name": "市辖区"
-          },
+
           {
             "code": "220402",
             "name": "龙山区"
@@ -2826,10 +2745,6 @@ export const CITY_DATA = [
         "code": "220500",
         "name": "通化市",
         "children": [
-          {
-            "code": "220501",
-            "name": "市辖区"
-          },
           {
             "code": "220502",
             "name": "东昌区"
@@ -2864,10 +2779,7 @@ export const CITY_DATA = [
         "code": "220600",
         "name": "白山市",
         "children": [
-          {
-            "code": "220601",
-            "name": "市辖区"
-          },
+
           {
             "code": "220602",
             "name": "浑江区"
@@ -2899,10 +2811,6 @@ export const CITY_DATA = [
         "name": "松原市",
         "children": [
           {
-            "code": "220701",
-            "name": "市辖区"
-          },
-          {
             "code": "220702",
             "name": "宁江区"
           },
@@ -2928,10 +2836,7 @@ export const CITY_DATA = [
         "code": "220800",
         "name": "白城市",
         "children": [
-          {
-            "code": "220801",
-            "name": "市辖区"
-          },
+
           {
             "code": "220802",
             "name": "洮北区"
@@ -3002,10 +2907,6 @@ export const CITY_DATA = [
         "code": "230100",
         "name": "哈尔滨市",
         "children": [
-          {
-            "code": "230101",
-            "name": "市辖区"
-          },
           {
             "code": "230102",
             "name": "道里区"
@@ -3084,10 +2985,7 @@ export const CITY_DATA = [
         "code": "230200",
         "name": "齐齐哈尔市",
         "children": [
-          {
-            "code": "230201",
-            "name": "市辖区"
-          },
+
           {
             "code": "230202",
             "name": "龙沙区"
@@ -3159,10 +3057,6 @@ export const CITY_DATA = [
         "name": "鸡西市",
         "children": [
           {
-            "code": "230301",
-            "name": "市辖区"
-          },
-          {
             "code": "230302",
             "name": "鸡冠区"
           },
@@ -3204,10 +3098,7 @@ export const CITY_DATA = [
         "code": "230400",
         "name": "鹤岗市",
         "children": [
-          {
-            "code": "230401",
-            "name": "市辖区"
-          },
+
           {
             "code": "230402",
             "name": "向阳区"
@@ -3247,10 +3138,6 @@ export const CITY_DATA = [
         "name": "双鸭山市",
         "children": [
           {
-            "code": "230501",
-            "name": "市辖区"
-          },
-          {
             "code": "230502",
             "name": "尖山区"
           },
@@ -3288,10 +3175,7 @@ export const CITY_DATA = [
         "code": "230600",
         "name": "大庆市",
         "children": [
-          {
-            "code": "230601",
-            "name": "市辖区"
-          },
+
           {
             "code": "230602",
             "name": "萨尔图区"
@@ -3334,10 +3218,6 @@ export const CITY_DATA = [
         "code": "230700",
         "name": "伊春市",
         "children": [
-          {
-            "code": "230701",
-            "name": "市辖区"
-          },
           {
             "code": "230702",
             "name": "伊春区"
@@ -3412,10 +3292,7 @@ export const CITY_DATA = [
         "code": "230800",
         "name": "佳木斯市",
         "children": [
-          {
-            "code": "230801",
-            "name": "市辖区"
-          },
+
           {
             "code": "230803",
             "name": "向阳区"
@@ -3463,10 +3340,6 @@ export const CITY_DATA = [
         "name": "七台河市",
         "children": [
           {
-            "code": "230901",
-            "name": "市辖区"
-          },
-          {
             "code": "230902",
             "name": "新兴区"
           },
@@ -3488,10 +3361,7 @@ export const CITY_DATA = [
         "code": "231000",
         "name": "牡丹江市",
         "children": [
-          {
-            "code": "231001",
-            "name": "市辖区"
-          },
+
           {
             "code": "231002",
             "name": "东安区"
@@ -3539,10 +3409,6 @@ export const CITY_DATA = [
         "name": "黑河市",
         "children": [
           {
-            "code": "231101",
-            "name": "市辖区"
-          },
-          {
             "code": "231102",
             "name": "爱辉区"
           },
@@ -3572,10 +3438,7 @@ export const CITY_DATA = [
         "code": "231200",
         "name": "绥化市",
         "children": [
-          {
-            "code": "231201",
-            "name": "市辖区"
-          },
+
           {
             "code": "231202",
             "name": "北林区"
@@ -3639,92 +3502,6 @@ export const CITY_DATA = [
     ]
   },
   {
-    "code": "310000",
-    "name": "上海市",
-    "children": [
-      {
-        "code": "310100",
-        "name": "市辖区",
-        "children": [
-          {
-            "code": "310101",
-            "name": "黄浦区"
-          },
-          {
-            "code": "310104",
-            "name": "徐汇区"
-          },
-          {
-            "code": "310105",
-            "name": "长宁区"
-          },
-          {
-            "code": "310106",
-            "name": "静安区"
-          },
-          {
-            "code": "310107",
-            "name": "普陀区"
-          },
-          {
-            "code": "310108",
-            "name": "闸北区"
-          },
-          {
-            "code": "310109",
-            "name": "虹口区"
-          },
-          {
-            "code": "310110",
-            "name": "杨浦区"
-          },
-          {
-            "code": "310112",
-            "name": "闵行区"
-          },
-          {
-            "code": "310113",
-            "name": "宝山区"
-          },
-          {
-            "code": "310114",
-            "name": "嘉定区"
-          },
-          {
-            "code": "310115",
-            "name": "浦东新区"
-          },
-          {
-            "code": "310116",
-            "name": "金山区"
-          },
-          {
-            "code": "310117",
-            "name": "松江区"
-          },
-          {
-            "code": "310118",
-            "name": "青浦区"
-          },
-          {
-            "code": "310120",
-            "name": "奉贤区"
-          }
-        ]
-      },
-      {
-        "code": "310200",
-        "name": "县",
-        "children": [
-          {
-            "code": "310230",
-            "name": "崇明县"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "code": "320000",
     "name": "江苏省",
     "children": [
@@ -3732,10 +3509,6 @@ export const CITY_DATA = [
         "code": "320100",
         "name": "南京市",
         "children": [
-          {
-            "code": "320101",
-            "name": "市辖区"
-          },
           {
             "code": "320102",
             "name": "玄武区"
@@ -3786,10 +3559,7 @@ export const CITY_DATA = [
         "code": "320200",
         "name": "无锡市",
         "children": [
-          {
-            "code": "320201",
-            "name": "市辖区"
-          },
+
           {
             "code": "320202",
             "name": "崇安区"
@@ -3828,10 +3598,6 @@ export const CITY_DATA = [
         "code": "320300",
         "name": "徐州市",
         "children": [
-          {
-            "code": "320301",
-            "name": "市辖区"
-          },
           {
             "code": "320302",
             "name": "鼓楼区"
@@ -3878,10 +3644,7 @@ export const CITY_DATA = [
         "code": "320400",
         "name": "常州市",
         "children": [
-          {
-            "code": "320401",
-            "name": "市辖区"
-          },
+
           {
             "code": "320402",
             "name": "天宁区"
@@ -3916,10 +3679,6 @@ export const CITY_DATA = [
         "code": "320500",
         "name": "苏州市",
         "children": [
-          {
-            "code": "320501",
-            "name": "市辖区"
-          },
           {
             "code": "320505",
             "name": "虎丘区"
@@ -3962,10 +3721,7 @@ export const CITY_DATA = [
         "code": "320600",
         "name": "南通市",
         "children": [
-          {
-            "code": "320601",
-            "name": "市辖区"
-          },
+
           {
             "code": "320602",
             "name": "崇川区"
@@ -4005,10 +3761,6 @@ export const CITY_DATA = [
         "name": "连云港市",
         "children": [
           {
-            "code": "320701",
-            "name": "市辖区"
-          },
-          {
             "code": "320703",
             "name": "连云区"
           },
@@ -4038,10 +3790,7 @@ export const CITY_DATA = [
         "code": "320800",
         "name": "淮安市",
         "children": [
-          {
-            "code": "320801",
-            "name": "市辖区"
-          },
+
           {
             "code": "320802",
             "name": "清河区"
@@ -4080,10 +3829,6 @@ export const CITY_DATA = [
         "code": "320900",
         "name": "盐城市",
         "children": [
-          {
-            "code": "320901",
-            "name": "市辖区"
-          },
           {
             "code": "320902",
             "name": "亭湖区"
@@ -4126,10 +3871,7 @@ export const CITY_DATA = [
         "code": "321000",
         "name": "扬州市",
         "children": [
-          {
-            "code": "321001",
-            "name": "市辖区"
-          },
+
           {
             "code": "321002",
             "name": "广陵区"
@@ -4161,10 +3903,6 @@ export const CITY_DATA = [
         "name": "镇江市",
         "children": [
           {
-            "code": "321101",
-            "name": "市辖区"
-          },
-          {
             "code": "321102",
             "name": "京口区"
           },
@@ -4194,10 +3932,7 @@ export const CITY_DATA = [
         "code": "321200",
         "name": "泰州市",
         "children": [
-          {
-            "code": "321201",
-            "name": "市辖区"
-          },
+
           {
             "code": "321202",
             "name": "海陵区"
@@ -4228,10 +3963,6 @@ export const CITY_DATA = [
         "code": "321300",
         "name": "宿迁市",
         "children": [
-          {
-            "code": "321301",
-            "name": "市辖区"
-          },
           {
             "code": "321302",
             "name": "宿城区"
@@ -4264,10 +3995,7 @@ export const CITY_DATA = [
         "code": "330100",
         "name": "杭州市",
         "children": [
-          {
-            "code": "330101",
-            "name": "市辖区"
-          },
+
           {
             "code": "330102",
             "name": "上城区"
@@ -4327,10 +4055,6 @@ export const CITY_DATA = [
         "name": "宁波市",
         "children": [
           {
-            "code": "330201",
-            "name": "市辖区"
-          },
-          {
             "code": "330203",
             "name": "海曙区"
           },
@@ -4380,10 +4104,7 @@ export const CITY_DATA = [
         "code": "330300",
         "name": "温州市",
         "children": [
-          {
-            "code": "330301",
-            "name": "市辖区"
-          },
+
           {
             "code": "330302",
             "name": "鹿城区"
@@ -4435,10 +4156,6 @@ export const CITY_DATA = [
         "name": "嘉兴市",
         "children": [
           {
-            "code": "330401",
-            "name": "市辖区"
-          },
-          {
             "code": "330402",
             "name": "南湖区"
           },
@@ -4472,10 +4189,7 @@ export const CITY_DATA = [
         "code": "330500",
         "name": "湖州市",
         "children": [
-          {
-            "code": "330501",
-            "name": "市辖区"
-          },
+
           {
             "code": "330502",
             "name": "吴兴区"
@@ -4502,10 +4216,6 @@ export const CITY_DATA = [
         "code": "330600",
         "name": "绍兴市",
         "children": [
-          {
-            "code": "330601",
-            "name": "市辖区"
-          },
           {
             "code": "330602",
             "name": "越城区"
@@ -4536,10 +4246,7 @@ export const CITY_DATA = [
         "code": "330700",
         "name": "金华市",
         "children": [
-          {
-            "code": "330701",
-            "name": "市辖区"
-          },
+
           {
             "code": "330702",
             "name": "婺城区"
@@ -4583,10 +4290,6 @@ export const CITY_DATA = [
         "name": "衢州市",
         "children": [
           {
-            "code": "330801",
-            "name": "市辖区"
-          },
-          {
             "code": "330802",
             "name": "柯城区"
           },
@@ -4616,10 +4319,7 @@ export const CITY_DATA = [
         "code": "330900",
         "name": "舟山市",
         "children": [
-          {
-            "code": "330901",
-            "name": "市辖区"
-          },
+
           {
             "code": "330902",
             "name": "定海区"
@@ -4642,10 +4342,6 @@ export const CITY_DATA = [
         "code": "331000",
         "name": "台州市",
         "children": [
-          {
-            "code": "331001",
-            "name": "市辖区"
-          },
           {
             "code": "331002",
             "name": "椒江区"
@@ -4688,10 +4384,7 @@ export const CITY_DATA = [
         "code": "331100",
         "name": "丽水市",
         "children": [
-          {
-            "code": "331101",
-            "name": "市辖区"
-          },
+
           {
             "code": "331102",
             "name": "莲都区"
@@ -4741,10 +4434,6 @@ export const CITY_DATA = [
         "name": "合肥市",
         "children": [
           {
-            "code": "340101",
-            "name": "市辖区"
-          },
-          {
             "code": "340102",
             "name": "瑶海区"
           },
@@ -4786,10 +4475,7 @@ export const CITY_DATA = [
         "code": "340200",
         "name": "芜湖市",
         "children": [
-          {
-            "code": "340201",
-            "name": "市辖区"
-          },
+
           {
             "code": "340202",
             "name": "镜湖区"
@@ -4829,10 +4515,6 @@ export const CITY_DATA = [
         "name": "蚌埠市",
         "children": [
           {
-            "code": "340301",
-            "name": "市辖区"
-          },
-          {
             "code": "340302",
             "name": "龙子湖区"
           },
@@ -4866,10 +4548,7 @@ export const CITY_DATA = [
         "code": "340400",
         "name": "淮南市",
         "children": [
-          {
-            "code": "340401",
-            "name": "市辖区"
-          },
+
           {
             "code": "340402",
             "name": "大通区"
@@ -4901,10 +4580,6 @@ export const CITY_DATA = [
         "name": "马鞍山市",
         "children": [
           {
-            "code": "340501",
-            "name": "市辖区"
-          },
-          {
             "code": "340503",
             "name": "花山区"
           },
@@ -4934,10 +4609,7 @@ export const CITY_DATA = [
         "code": "340600",
         "name": "淮北市",
         "children": [
-          {
-            "code": "340601",
-            "name": "市辖区"
-          },
+
           {
             "code": "340602",
             "name": "杜集区"
@@ -4961,10 +4633,6 @@ export const CITY_DATA = [
         "name": "铜陵市",
         "children": [
           {
-            "code": "340701",
-            "name": "市辖区"
-          },
-          {
             "code": "340702",
             "name": "铜官山区"
           },
@@ -4986,10 +4654,6 @@ export const CITY_DATA = [
         "code": "340800",
         "name": "安庆市",
         "children": [
-          {
-            "code": "340801",
-            "name": "市辖区"
-          },
           {
             "code": "340802",
             "name": "迎江区"
@@ -5041,10 +4705,6 @@ export const CITY_DATA = [
         "name": "黄山市",
         "children": [
           {
-            "code": "341001",
-            "name": "市辖区"
-          },
-          {
             "code": "341002",
             "name": "屯溪区"
           },
@@ -5078,10 +4738,6 @@ export const CITY_DATA = [
         "code": "341100",
         "name": "滁州市",
         "children": [
-          {
-            "code": "341101",
-            "name": "市辖区"
-          },
           {
             "code": "341102",
             "name": "琅琊区"
@@ -5121,10 +4777,6 @@ export const CITY_DATA = [
         "name": "阜阳市",
         "children": [
           {
-            "code": "341201",
-            "name": "市辖区"
-          },
-          {
             "code": "341202",
             "name": "颍州区"
           },
@@ -5163,10 +4815,6 @@ export const CITY_DATA = [
         "name": "宿州市",
         "children": [
           {
-            "code": "341301",
-            "name": "市辖区"
-          },
-          {
             "code": "341302",
             "name": "埇桥区"
           },
@@ -5192,10 +4840,6 @@ export const CITY_DATA = [
         "code": "341500",
         "name": "六安市",
         "children": [
-          {
-            "code": "341501",
-            "name": "市辖区"
-          },
           {
             "code": "341502",
             "name": "金安区"
@@ -5231,10 +4875,6 @@ export const CITY_DATA = [
         "name": "亳州市",
         "children": [
           {
-            "code": "341601",
-            "name": "市辖区"
-          },
-          {
             "code": "341602",
             "name": "谯城区"
           },
@@ -5257,10 +4897,6 @@ export const CITY_DATA = [
         "name": "池州市",
         "children": [
           {
-            "code": "341701",
-            "name": "市辖区"
-          },
-          {
             "code": "341702",
             "name": "贵池区"
           },
@@ -5282,10 +4918,6 @@ export const CITY_DATA = [
         "code": "341800",
         "name": "宣城市",
         "children": [
-          {
-            "code": "341801",
-            "name": "市辖区"
-          },
           {
             "code": "341802",
             "name": "宣州区"
@@ -5326,10 +4958,6 @@ export const CITY_DATA = [
         "code": "350100",
         "name": "福州市",
         "children": [
-          {
-            "code": "350101",
-            "name": "市辖区"
-          },
           {
             "code": "350102",
             "name": "鼓楼区"
@@ -5389,10 +5017,6 @@ export const CITY_DATA = [
         "name": "厦门市",
         "children": [
           {
-            "code": "350201",
-            "name": "市辖区"
-          },
-          {
             "code": "350203",
             "name": "思明区"
           },
@@ -5423,10 +5047,6 @@ export const CITY_DATA = [
         "name": "莆田市",
         "children": [
           {
-            "code": "350301",
-            "name": "市辖区"
-          },
-          {
             "code": "350302",
             "name": "城厢区"
           },
@@ -5452,10 +5072,6 @@ export const CITY_DATA = [
         "code": "350400",
         "name": "三明市",
         "children": [
-          {
-            "code": "350401",
-            "name": "市辖区"
-          },
           {
             "code": "350402",
             "name": "梅列区"
@@ -5511,10 +5127,6 @@ export const CITY_DATA = [
         "name": "泉州市",
         "children": [
           {
-            "code": "350501",
-            "name": "市辖区"
-          },
-          {
             "code": "350502",
             "name": "鲤城区"
           },
@@ -5569,10 +5181,6 @@ export const CITY_DATA = [
         "name": "漳州市",
         "children": [
           {
-            "code": "350601",
-            "name": "市辖区"
-          },
-          {
             "code": "350602",
             "name": "芗城区"
           },
@@ -5623,10 +5231,6 @@ export const CITY_DATA = [
         "name": "南平市",
         "children": [
           {
-            "code": "350701",
-            "name": "市辖区"
-          },
-          {
             "code": "350702",
             "name": "延平区"
           },
@@ -5673,10 +5277,6 @@ export const CITY_DATA = [
         "name": "龙岩市",
         "children": [
           {
-            "code": "350801",
-            "name": "市辖区"
-          },
-          {
             "code": "350802",
             "name": "新罗区"
           },
@@ -5710,10 +5310,6 @@ export const CITY_DATA = [
         "code": "350900",
         "name": "宁德市",
         "children": [
-          {
-            "code": "350901",
-            "name": "市辖区"
-          },
           {
             "code": "350902",
             "name": "蕉城区"
@@ -5763,10 +5359,6 @@ export const CITY_DATA = [
         "name": "南昌市",
         "children": [
           {
-            "code": "360101",
-            "name": "市辖区"
-          },
-          {
             "code": "360102",
             "name": "东湖区"
           },
@@ -5809,10 +5401,6 @@ export const CITY_DATA = [
         "name": "景德镇市",
         "children": [
           {
-            "code": "360201",
-            "name": "市辖区"
-          },
-          {
             "code": "360202",
             "name": "昌江区"
           },
@@ -5834,10 +5422,6 @@ export const CITY_DATA = [
         "code": "360300",
         "name": "萍乡市",
         "children": [
-          {
-            "code": "360301",
-            "name": "市辖区"
-          },
           {
             "code": "360302",
             "name": "安源区"
@@ -5864,10 +5448,6 @@ export const CITY_DATA = [
         "code": "360400",
         "name": "九江市",
         "children": [
-          {
-            "code": "360401",
-            "name": "市辖区"
-          },
           {
             "code": "360402",
             "name": "庐山区"
@@ -5927,10 +5507,6 @@ export const CITY_DATA = [
         "name": "新余市",
         "children": [
           {
-            "code": "360501",
-            "name": "市辖区"
-          },
-          {
             "code": "360502",
             "name": "渝水区"
           },
@@ -5944,10 +5520,6 @@ export const CITY_DATA = [
         "code": "360600",
         "name": "鹰潭市",
         "children": [
-          {
-            "code": "360601",
-            "name": "市辖区"
-          },
           {
             "code": "360602",
             "name": "月湖区"
@@ -5966,10 +5538,6 @@ export const CITY_DATA = [
         "code": "360700",
         "name": "赣州市",
         "children": [
-          {
-            "code": "360701",
-            "name": "市辖区"
-          },
           {
             "code": "360702",
             "name": "章贡区"
@@ -6049,10 +5617,6 @@ export const CITY_DATA = [
         "name": "吉安市",
         "children": [
           {
-            "code": "360801",
-            "name": "市辖区"
-          },
-          {
             "code": "360802",
             "name": "吉州区"
           },
@@ -6111,10 +5675,6 @@ export const CITY_DATA = [
         "name": "宜春市",
         "children": [
           {
-            "code": "360901",
-            "name": "市辖区"
-          },
-          {
             "code": "360902",
             "name": "袁州区"
           },
@@ -6160,10 +5720,6 @@ export const CITY_DATA = [
         "code": "361000",
         "name": "抚州市",
         "children": [
-          {
-            "code": "361001",
-            "name": "市辖区"
-          },
           {
             "code": "361002",
             "name": "临川区"
@@ -6214,10 +5770,6 @@ export const CITY_DATA = [
         "code": "361100",
         "name": "上饶市",
         "children": [
-          {
-            "code": "361101",
-            "name": "市辖区"
-          },
           {
             "code": "361102",
             "name": "信州区"
@@ -6279,10 +5831,6 @@ export const CITY_DATA = [
         "name": "济南市",
         "children": [
           {
-            "code": "370101",
-            "name": "市辖区"
-          },
-          {
             "code": "370102",
             "name": "历下区"
           },
@@ -6328,10 +5876,6 @@ export const CITY_DATA = [
         "code": "370200",
         "name": "青岛市",
         "children": [
-          {
-            "code": "370201",
-            "name": "市辖区"
-          },
           {
             "code": "370202",
             "name": "市南区"
@@ -6379,10 +5923,6 @@ export const CITY_DATA = [
         "name": "淄博市",
         "children": [
           {
-            "code": "370301",
-            "name": "市辖区"
-          },
-          {
             "code": "370302",
             "name": "淄川区"
           },
@@ -6421,10 +5961,6 @@ export const CITY_DATA = [
         "name": "枣庄市",
         "children": [
           {
-            "code": "370401",
-            "name": "市辖区"
-          },
-          {
             "code": "370402",
             "name": "市中区"
           },
@@ -6455,10 +5991,6 @@ export const CITY_DATA = [
         "name": "东营市",
         "children": [
           {
-            "code": "370501",
-            "name": "市辖区"
-          },
-          {
             "code": "370502",
             "name": "东营区"
           },
@@ -6484,10 +6016,6 @@ export const CITY_DATA = [
         "code": "370600",
         "name": "烟台市",
         "children": [
-          {
-            "code": "370601",
-            "name": "市辖区"
-          },
           {
             "code": "370602",
             "name": "芝罘区"
@@ -6543,10 +6071,6 @@ export const CITY_DATA = [
         "name": "潍坊市",
         "children": [
           {
-            "code": "370701",
-            "name": "市辖区"
-          },
-          {
             "code": "370702",
             "name": "潍城区"
           },
@@ -6601,10 +6125,6 @@ export const CITY_DATA = [
         "name": "济宁市",
         "children": [
           {
-            "code": "370801",
-            "name": "市辖区"
-          },
-          {
             "code": "370811",
             "name": "任城区"
           },
@@ -6655,10 +6175,6 @@ export const CITY_DATA = [
         "name": "泰安市",
         "children": [
           {
-            "code": "370901",
-            "name": "市辖区"
-          },
-          {
             "code": "370902",
             "name": "泰山区"
           },
@@ -6689,10 +6205,6 @@ export const CITY_DATA = [
         "name": "威海市",
         "children": [
           {
-            "code": "371001",
-            "name": "市辖区"
-          },
-          {
             "code": "371002",
             "name": "环翠区"
           },
@@ -6714,10 +6226,6 @@ export const CITY_DATA = [
         "code": "371100",
         "name": "日照市",
         "children": [
-          {
-            "code": "371101",
-            "name": "市辖区"
-          },
           {
             "code": "371102",
             "name": "东港区"
@@ -6741,10 +6249,6 @@ export const CITY_DATA = [
         "name": "莱芜市",
         "children": [
           {
-            "code": "371201",
-            "name": "市辖区"
-          },
-          {
             "code": "371202",
             "name": "莱城区"
           },
@@ -6758,10 +6262,6 @@ export const CITY_DATA = [
         "code": "371300",
         "name": "临沂市",
         "children": [
-          {
-            "code": "371301",
-            "name": "市辖区"
-          },
           {
             "code": "371302",
             "name": "兰山区"
@@ -6817,10 +6317,6 @@ export const CITY_DATA = [
         "name": "德州市",
         "children": [
           {
-            "code": "371401",
-            "name": "市辖区"
-          },
-          {
             "code": "371402",
             "name": "德城区"
           },
@@ -6871,10 +6367,6 @@ export const CITY_DATA = [
         "name": "聊城市",
         "children": [
           {
-            "code": "371501",
-            "name": "市辖区"
-          },
-          {
             "code": "371502",
             "name": "东昌府区"
           },
@@ -6913,10 +6405,6 @@ export const CITY_DATA = [
         "name": "滨州市",
         "children": [
           {
-            "code": "371601",
-            "name": "市辖区"
-          },
-          {
             "code": "371602",
             "name": "滨城区"
           },
@@ -6950,10 +6438,6 @@ export const CITY_DATA = [
         "code": "371700",
         "name": "菏泽市",
         "children": [
-          {
-            "code": "371701",
-            "name": "市辖区"
-          },
           {
             "code": "371702",
             "name": "牡丹区"
@@ -7002,10 +6486,6 @@ export const CITY_DATA = [
         "code": "410100",
         "name": "郑州市",
         "children": [
-          {
-            "code": "410101",
-            "name": "市辖区"
-          },
           {
             "code": "410102",
             "name": "中原区"
@@ -7061,10 +6541,6 @@ export const CITY_DATA = [
         "name": "开封市",
         "children": [
           {
-            "code": "410201",
-            "name": "市辖区"
-          },
-          {
             "code": "410202",
             "name": "龙亭区"
           },
@@ -7110,10 +6586,6 @@ export const CITY_DATA = [
         "code": "410300",
         "name": "洛阳市",
         "children": [
-          {
-            "code": "410301",
-            "name": "市辖区"
-          },
           {
             "code": "410302",
             "name": "老城区"
@@ -7181,10 +6653,6 @@ export const CITY_DATA = [
         "name": "平顶山市",
         "children": [
           {
-            "code": "410401",
-            "name": "市辖区"
-          },
-          {
             "code": "410402",
             "name": "新华区"
           },
@@ -7231,10 +6699,6 @@ export const CITY_DATA = [
         "name": "安阳市",
         "children": [
           {
-            "code": "410501",
-            "name": "市辖区"
-          },
-          {
             "code": "410502",
             "name": "文峰区"
           },
@@ -7277,10 +6741,6 @@ export const CITY_DATA = [
         "name": "鹤壁市",
         "children": [
           {
-            "code": "410601",
-            "name": "市辖区"
-          },
-          {
             "code": "410602",
             "name": "鹤山区"
           },
@@ -7306,10 +6766,7 @@ export const CITY_DATA = [
         "code": "410700",
         "name": "新乡市",
         "children": [
-          {
-            "code": "410701",
-            "name": "市辖区"
-          },
+
           {
             "code": "410702",
             "name": "红旗区"
@@ -7364,10 +6821,7 @@ export const CITY_DATA = [
         "code": "410800",
         "name": "焦作市",
         "children": [
-          {
-            "code": "410801",
-            "name": "市辖区"
-          },
+
           {
             "code": "410802",
             "name": "解放区"
@@ -7414,10 +6868,7 @@ export const CITY_DATA = [
         "code": "410900",
         "name": "濮阳市",
         "children": [
-          {
-            "code": "410901",
-            "name": "市辖区"
-          },
+
           {
             "code": "410902",
             "name": "华龙区"
@@ -7448,10 +6899,7 @@ export const CITY_DATA = [
         "code": "411000",
         "name": "许昌市",
         "children": [
-          {
-            "code": "411001",
-            "name": "市辖区"
-          },
+
           {
             "code": "411002",
             "name": "魏都区"
@@ -7482,10 +6930,7 @@ export const CITY_DATA = [
         "code": "411100",
         "name": "漯河市",
         "children": [
-          {
-            "code": "411101",
-            "name": "市辖区"
-          },
+
           {
             "code": "411102",
             "name": "源汇区"
@@ -7512,10 +6957,7 @@ export const CITY_DATA = [
         "code": "411200",
         "name": "三门峡市",
         "children": [
-          {
-            "code": "411201",
-            "name": "市辖区"
-          },
+
           {
             "code": "411202",
             "name": "湖滨区"
@@ -7546,10 +6988,7 @@ export const CITY_DATA = [
         "code": "411300",
         "name": "南阳市",
         "children": [
-          {
-            "code": "411301",
-            "name": "市辖区"
-          },
+
           {
             "code": "411302",
             "name": "宛城区"
@@ -7608,10 +7047,7 @@ export const CITY_DATA = [
         "code": "411400",
         "name": "商丘市",
         "children": [
-          {
-            "code": "411401",
-            "name": "市辖区"
-          },
+
           {
             "code": "411402",
             "name": "梁园区"
@@ -7654,10 +7090,7 @@ export const CITY_DATA = [
         "code": "411500",
         "name": "信阳市",
         "children": [
-          {
-            "code": "411501",
-            "name": "市辖区"
-          },
+
           {
             "code": "411502",
             "name": "浉河区"
@@ -7704,10 +7137,7 @@ export const CITY_DATA = [
         "code": "411600",
         "name": "周口市",
         "children": [
-          {
-            "code": "411601",
-            "name": "市辖区"
-          },
+
           {
             "code": "411602",
             "name": "川汇区"
@@ -7754,10 +7184,7 @@ export const CITY_DATA = [
         "code": "411700",
         "name": "驻马店市",
         "children": [
-          {
-            "code": "411701",
-            "name": "市辖区"
-          },
+
           {
             "code": "411702",
             "name": "驿城区"
@@ -7820,10 +7247,7 @@ export const CITY_DATA = [
         "code": "420100",
         "name": "武汉市",
         "children": [
-          {
-            "code": "420101",
-            "name": "市辖区"
-          },
+
           {
             "code": "420102",
             "name": "江岸区"
@@ -7882,10 +7306,7 @@ export const CITY_DATA = [
         "code": "420200",
         "name": "黄石市",
         "children": [
-          {
-            "code": "420201",
-            "name": "市辖区"
-          },
+
           {
             "code": "420202",
             "name": "黄石港区"
@@ -7916,10 +7337,7 @@ export const CITY_DATA = [
         "code": "420300",
         "name": "十堰市",
         "children": [
-          {
-            "code": "420301",
-            "name": "市辖区"
-          },
+
           {
             "code": "420302",
             "name": "茅箭区"
@@ -7958,10 +7376,7 @@ export const CITY_DATA = [
         "code": "420500",
         "name": "宜昌市",
         "children": [
-          {
-            "code": "420501",
-            "name": "市辖区"
-          },
+
           {
             "code": "420502",
             "name": "西陵区"
@@ -8020,10 +7435,7 @@ export const CITY_DATA = [
         "code": "420600",
         "name": "襄阳市",
         "children": [
-          {
-            "code": "420601",
-            "name": "市辖区"
-          },
+
           {
             "code": "420602",
             "name": "襄城区"
@@ -8066,10 +7478,7 @@ export const CITY_DATA = [
         "code": "420700",
         "name": "鄂州市",
         "children": [
-          {
-            "code": "420701",
-            "name": "市辖区"
-          },
+
           {
             "code": "420702",
             "name": "梁子湖区"
@@ -8088,10 +7497,7 @@ export const CITY_DATA = [
         "code": "420800",
         "name": "荆门市",
         "children": [
-          {
-            "code": "420801",
-            "name": "市辖区"
-          },
+
           {
             "code": "420802",
             "name": "东宝区"
@@ -8118,10 +7524,6 @@ export const CITY_DATA = [
         "code": "420900",
         "name": "孝感市",
         "children": [
-          {
-            "code": "420901",
-            "name": "市辖区"
-          },
           {
             "code": "420902",
             "name": "孝南区"
@@ -8156,10 +7558,6 @@ export const CITY_DATA = [
         "code": "421000",
         "name": "荆州市",
         "children": [
-          {
-            "code": "421001",
-            "name": "市辖区"
-          },
           {
             "code": "421002",
             "name": "沙市区"
@@ -8198,10 +7596,6 @@ export const CITY_DATA = [
         "code": "421100",
         "name": "黄冈市",
         "children": [
-          {
-            "code": "421101",
-            "name": "市辖区"
-          },
           {
             "code": "421102",
             "name": "黄州区"
@@ -8249,10 +7643,6 @@ export const CITY_DATA = [
         "name": "咸宁市",
         "children": [
           {
-            "code": "421201",
-            "name": "市辖区"
-          },
-          {
             "code": "421202",
             "name": "咸安区"
           },
@@ -8282,10 +7672,6 @@ export const CITY_DATA = [
         "code": "421300",
         "name": "随州市",
         "children": [
-          {
-            "code": "421301",
-            "name": "市辖区"
-          },
           {
             "code": "421303",
             "name": "曾都区"
@@ -8371,10 +7757,6 @@ export const CITY_DATA = [
         "name": "长沙市",
         "children": [
           {
-            "code": "430101",
-            "name": "市辖区"
-          },
-          {
             "code": "430102",
             "name": "芙蓉区"
           },
@@ -8416,10 +7798,6 @@ export const CITY_DATA = [
         "code": "430200",
         "name": "株洲市",
         "children": [
-          {
-            "code": "430201",
-            "name": "市辖区"
-          },
           {
             "code": "430202",
             "name": "荷塘区"
@@ -8463,10 +7841,6 @@ export const CITY_DATA = [
         "name": "湘潭市",
         "children": [
           {
-            "code": "430301",
-            "name": "市辖区"
-          },
-          {
             "code": "430302",
             "name": "雨湖区"
           },
@@ -8492,10 +7866,6 @@ export const CITY_DATA = [
         "code": "430400",
         "name": "衡阳市",
         "children": [
-          {
-            "code": "430401",
-            "name": "市辖区"
-          },
           {
             "code": "430405",
             "name": "珠晖区"
@@ -8551,10 +7921,6 @@ export const CITY_DATA = [
         "name": "邵阳市",
         "children": [
           {
-            "code": "430501",
-            "name": "市辖区"
-          },
-          {
             "code": "430502",
             "name": "双清区"
           },
@@ -8609,10 +7975,6 @@ export const CITY_DATA = [
         "name": "岳阳市",
         "children": [
           {
-            "code": "430601",
-            "name": "市辖区"
-          },
-          {
             "code": "430602",
             "name": "岳阳楼区"
           },
@@ -8654,10 +8016,6 @@ export const CITY_DATA = [
         "code": "430700",
         "name": "常德市",
         "children": [
-          {
-            "code": "430701",
-            "name": "市辖区"
-          },
           {
             "code": "430702",
             "name": "武陵区"
@@ -8701,10 +8059,6 @@ export const CITY_DATA = [
         "name": "张家界市",
         "children": [
           {
-            "code": "430801",
-            "name": "市辖区"
-          },
-          {
             "code": "430802",
             "name": "永定区"
           },
@@ -8726,10 +8080,6 @@ export const CITY_DATA = [
         "code": "430900",
         "name": "益阳市",
         "children": [
-          {
-            "code": "430901",
-            "name": "市辖区"
-          },
           {
             "code": "430902",
             "name": "资阳区"
@@ -8760,10 +8110,6 @@ export const CITY_DATA = [
         "code": "431000",
         "name": "郴州市",
         "children": [
-          {
-            "code": "431001",
-            "name": "市辖区"
-          },
           {
             "code": "431002",
             "name": "北湖区"
@@ -8815,10 +8161,6 @@ export const CITY_DATA = [
         "name": "永州市",
         "children": [
           {
-            "code": "431101",
-            "name": "市辖区"
-          },
-          {
             "code": "431102",
             "name": "零陵区"
           },
@@ -8868,10 +8210,6 @@ export const CITY_DATA = [
         "code": "431200",
         "name": "怀化市",
         "children": [
-          {
-            "code": "431201",
-            "name": "市辖区"
-          },
           {
             "code": "431202",
             "name": "鹤城区"
@@ -8926,10 +8264,6 @@ export const CITY_DATA = [
         "code": "431300",
         "name": "娄底市",
         "children": [
-          {
-            "code": "431301",
-            "name": "市辖区"
-          },
           {
             "code": "431302",
             "name": "娄星区"
@@ -9001,10 +8335,6 @@ export const CITY_DATA = [
         "name": "广州市",
         "children": [
           {
-            "code": "440101",
-            "name": "市辖区"
-          },
-          {
             "code": "440103",
             "name": "荔湾区"
           },
@@ -9058,10 +8388,7 @@ export const CITY_DATA = [
         "code": "440200",
         "name": "韶关市",
         "children": [
-          {
-            "code": "440201",
-            "name": "市辖区"
-          },
+
           {
             "code": "440203",
             "name": "武江区"
@@ -9108,10 +8435,7 @@ export const CITY_DATA = [
         "code": "440300",
         "name": "深圳市",
         "children": [
-          {
-            "code": "440301",
-            "name": "市辖区"
-          },
+
           {
             "code": "440303",
             "name": "罗湖区"
@@ -9142,10 +8466,7 @@ export const CITY_DATA = [
         "code": "440400",
         "name": "珠海市",
         "children": [
-          {
-            "code": "440401",
-            "name": "市辖区"
-          },
+
           {
             "code": "440402",
             "name": "香洲区"
@@ -9164,10 +8485,7 @@ export const CITY_DATA = [
         "code": "440500",
         "name": "汕头市",
         "children": [
-          {
-            "code": "440501",
-            "name": "市辖区"
-          },
+
           {
             "code": "440507",
             "name": "龙湖区"
@@ -9202,10 +8520,7 @@ export const CITY_DATA = [
         "code": "440600",
         "name": "佛山市",
         "children": [
-          {
-            "code": "440601",
-            "name": "市辖区"
-          },
+
           {
             "code": "440604",
             "name": "禅城区"
@@ -9232,10 +8547,7 @@ export const CITY_DATA = [
         "code": "440700",
         "name": "江门市",
         "children": [
-          {
-            "code": "440701",
-            "name": "市辖区"
-          },
+
           {
             "code": "440703",
             "name": "蓬江区"
@@ -9270,10 +8582,7 @@ export const CITY_DATA = [
         "code": "440800",
         "name": "湛江市",
         "children": [
-          {
-            "code": "440801",
-            "name": "市辖区"
-          },
+
           {
             "code": "440802",
             "name": "赤坎区"
@@ -9316,10 +8625,7 @@ export const CITY_DATA = [
         "code": "440900",
         "name": "茂名市",
         "children": [
-          {
-            "code": "440901",
-            "name": "市辖区"
-          },
+
           {
             "code": "440902",
             "name": "茂南区"
@@ -9346,10 +8652,7 @@ export const CITY_DATA = [
         "code": "441200",
         "name": "肇庆市",
         "children": [
-          {
-            "code": "441201",
-            "name": "市辖区"
-          },
+
           {
             "code": "441202",
             "name": "端州区"
@@ -9388,10 +8691,7 @@ export const CITY_DATA = [
         "code": "441300",
         "name": "惠州市",
         "children": [
-          {
-            "code": "441301",
-            "name": "市辖区"
-          },
+
           {
             "code": "441302",
             "name": "惠城区"
@@ -9418,10 +8718,7 @@ export const CITY_DATA = [
         "code": "441400",
         "name": "梅州市",
         "children": [
-          {
-            "code": "441401",
-            "name": "市辖区"
-          },
+
           {
             "code": "441402",
             "name": "梅江区"
@@ -9460,10 +8757,7 @@ export const CITY_DATA = [
         "code": "441500",
         "name": "汕尾市",
         "children": [
-          {
-            "code": "441501",
-            "name": "市辖区"
-          },
+
           {
             "code": "441502",
             "name": "城区"
@@ -9486,10 +8780,7 @@ export const CITY_DATA = [
         "code": "441600",
         "name": "河源市",
         "children": [
-          {
-            "code": "441601",
-            "name": "市辖区"
-          },
+
           {
             "code": "441602",
             "name": "源城区"
@@ -9520,10 +8811,7 @@ export const CITY_DATA = [
         "code": "441700",
         "name": "阳江市",
         "children": [
-          {
-            "code": "441701",
-            "name": "市辖区"
-          },
+
           {
             "code": "441702",
             "name": "江城区"
@@ -9546,10 +8834,7 @@ export const CITY_DATA = [
         "code": "441800",
         "name": "清远市",
         "children": [
-          {
-            "code": "441801",
-            "name": "市辖区"
-          },
+
           {
             "code": "441802",
             "name": "清城区"
@@ -9596,10 +8881,7 @@ export const CITY_DATA = [
         "code": "445100",
         "name": "潮州市",
         "children": [
-          {
-            "code": "445101",
-            "name": "市辖区"
-          },
+
           {
             "code": "445102",
             "name": "湘桥区"
@@ -9618,10 +8900,7 @@ export const CITY_DATA = [
         "code": "445200",
         "name": "揭阳市",
         "children": [
-          {
-            "code": "445201",
-            "name": "市辖区"
-          },
+
           {
             "code": "445202",
             "name": "榕城区"
@@ -9648,10 +8927,7 @@ export const CITY_DATA = [
         "code": "445300",
         "name": "云浮市",
         "children": [
-          {
-            "code": "445301",
-            "name": "市辖区"
-          },
+
           {
             "code": "445302",
             "name": "云城区"
@@ -9684,10 +8960,7 @@ export const CITY_DATA = [
         "code": "450100",
         "name": "南宁市",
         "children": [
-          {
-            "code": "450101",
-            "name": "市辖区"
-          },
+
           {
             "code": "450102",
             "name": "兴宁区"
@@ -9742,10 +9015,7 @@ export const CITY_DATA = [
         "code": "450200",
         "name": "柳州市",
         "children": [
-          {
-            "code": "450201",
-            "name": "市辖区"
-          },
+
           {
             "code": "450202",
             "name": "城中区"
@@ -9792,10 +9062,7 @@ export const CITY_DATA = [
         "code": "450300",
         "name": "桂林市",
         "children": [
-          {
-            "code": "450301",
-            "name": "市辖区"
-          },
+
           {
             "code": "450302",
             "name": "秀峰区"
@@ -9870,10 +9137,7 @@ export const CITY_DATA = [
         "code": "450400",
         "name": "梧州市",
         "children": [
-          {
-            "code": "450401",
-            "name": "市辖区"
-          },
+
           {
             "code": "450403",
             "name": "万秀区"
@@ -9908,10 +9172,7 @@ export const CITY_DATA = [
         "code": "450500",
         "name": "北海市",
         "children": [
-          {
-            "code": "450501",
-            "name": "市辖区"
-          },
+
           {
             "code": "450502",
             "name": "海城区"
@@ -9934,10 +9195,7 @@ export const CITY_DATA = [
         "code": "450600",
         "name": "防城港市",
         "children": [
-          {
-            "code": "450601",
-            "name": "市辖区"
-          },
+
           {
             "code": "450602",
             "name": "港口区"
@@ -9960,10 +9218,7 @@ export const CITY_DATA = [
         "code": "450700",
         "name": "钦州市",
         "children": [
-          {
-            "code": "450701",
-            "name": "市辖区"
-          },
+
           {
             "code": "450702",
             "name": "钦南区"
@@ -9986,10 +9241,7 @@ export const CITY_DATA = [
         "code": "450800",
         "name": "贵港市",
         "children": [
-          {
-            "code": "450801",
-            "name": "市辖区"
-          },
+
           {
             "code": "450802",
             "name": "港北区"
@@ -10016,10 +9268,7 @@ export const CITY_DATA = [
         "code": "450900",
         "name": "玉林市",
         "children": [
-          {
-            "code": "450901",
-            "name": "市辖区"
-          },
+
           {
             "code": "450902",
             "name": "玉州区"
@@ -10054,10 +9303,7 @@ export const CITY_DATA = [
         "code": "451000",
         "name": "百色市",
         "children": [
-          {
-            "code": "451001",
-            "name": "市辖区"
-          },
+
           {
             "code": "451002",
             "name": "右江区"
@@ -10112,10 +9358,7 @@ export const CITY_DATA = [
         "code": "451100",
         "name": "贺州市",
         "children": [
-          {
-            "code": "451101",
-            "name": "市辖区"
-          },
+
           {
             "code": "451102",
             "name": "八步区"
@@ -10138,10 +9381,7 @@ export const CITY_DATA = [
         "code": "451200",
         "name": "河池市",
         "children": [
-          {
-            "code": "451201",
-            "name": "市辖区"
-          },
+
           {
             "code": "451202",
             "name": "金城江区"
@@ -10192,10 +9432,7 @@ export const CITY_DATA = [
         "code": "451300",
         "name": "来宾市",
         "children": [
-          {
-            "code": "451301",
-            "name": "市辖区"
-          },
+
           {
             "code": "451302",
             "name": "兴宾区"
@@ -10226,10 +9463,7 @@ export const CITY_DATA = [
         "code": "451400",
         "name": "崇左市",
         "children": [
-          {
-            "code": "451401",
-            "name": "市辖区"
-          },
+
           {
             "code": "451402",
             "name": "江州区"
@@ -10270,10 +9504,7 @@ export const CITY_DATA = [
         "code": "460100",
         "name": "海口市",
         "children": [
-          {
-            "code": "460101",
-            "name": "市辖区"
-          },
+
           {
             "code": "460105",
             "name": "秀英区"
@@ -10296,10 +9527,7 @@ export const CITY_DATA = [
         "code": "460200",
         "name": "三亚市",
         "children": [
-          {
-            "code": "460201",
-            "name": "市辖区"
-          },
+
           {
             "code": "460202",
             "name": "海棠区"
@@ -10572,10 +9800,7 @@ export const CITY_DATA = [
         "code": "510100",
         "name": "成都市",
         "children": [
-          {
-            "code": "510101",
-            "name": "市辖区"
-          },
+
           {
             "code": "510104",
             "name": "锦江区"
@@ -10658,10 +9883,7 @@ export const CITY_DATA = [
         "code": "510300",
         "name": "自贡市",
         "children": [
-          {
-            "code": "510301",
-            "name": "市辖区"
-          },
+
           {
             "code": "510302",
             "name": "自流井区"
@@ -10692,10 +9914,7 @@ export const CITY_DATA = [
         "code": "510400",
         "name": "攀枝花市",
         "children": [
-          {
-            "code": "510401",
-            "name": "市辖区"
-          },
+
           {
             "code": "510402",
             "name": "东区"
@@ -10722,10 +9941,7 @@ export const CITY_DATA = [
         "code": "510500",
         "name": "泸州市",
         "children": [
-          {
-            "code": "510501",
-            "name": "市辖区"
-          },
+
           {
             "code": "510502",
             "name": "江阳区"
@@ -10760,10 +9976,7 @@ export const CITY_DATA = [
         "code": "510600",
         "name": "德阳市",
         "children": [
-          {
-            "code": "510601",
-            "name": "市辖区"
-          },
+
           {
             "code": "510603",
             "name": "旌阳区"
@@ -10794,10 +10007,7 @@ export const CITY_DATA = [
         "code": "510700",
         "name": "绵阳市",
         "children": [
-          {
-            "code": "510701",
-            "name": "市辖区"
-          },
+
           {
             "code": "510703",
             "name": "涪城区"
@@ -10840,10 +10050,7 @@ export const CITY_DATA = [
         "code": "510800",
         "name": "广元市",
         "children": [
-          {
-            "code": "510801",
-            "name": "市辖区"
-          },
+
           {
             "code": "510802",
             "name": "利州区"
@@ -10878,10 +10085,7 @@ export const CITY_DATA = [
         "code": "510900",
         "name": "遂宁市",
         "children": [
-          {
-            "code": "510901",
-            "name": "市辖区"
-          },
+
           {
             "code": "510903",
             "name": "船山区"
@@ -10908,10 +10112,7 @@ export const CITY_DATA = [
         "code": "511000",
         "name": "内江市",
         "children": [
-          {
-            "code": "511001",
-            "name": "市辖区"
-          },
+
           {
             "code": "511002",
             "name": "市中区"
@@ -10938,10 +10139,7 @@ export const CITY_DATA = [
         "code": "511100",
         "name": "乐山市",
         "children": [
-          {
-            "code": "511101",
-            "name": "市辖区"
-          },
+
           {
             "code": "511102",
             "name": "市中区"
@@ -10992,10 +10190,7 @@ export const CITY_DATA = [
         "code": "511300",
         "name": "南充市",
         "children": [
-          {
-            "code": "511301",
-            "name": "市辖区"
-          },
+
           {
             "code": "511302",
             "name": "顺庆区"
@@ -11038,10 +10233,7 @@ export const CITY_DATA = [
         "code": "511400",
         "name": "眉山市",
         "children": [
-          {
-            "code": "511401",
-            "name": "市辖区"
-          },
+
           {
             "code": "511402",
             "name": "东坡区"
@@ -11072,10 +10264,7 @@ export const CITY_DATA = [
         "code": "511500",
         "name": "宜宾市",
         "children": [
-          {
-            "code": "511501",
-            "name": "市辖区"
-          },
+
           {
             "code": "511502",
             "name": "翠屏区"
@@ -11122,10 +10311,7 @@ export const CITY_DATA = [
         "code": "511600",
         "name": "广安市",
         "children": [
-          {
-            "code": "511601",
-            "name": "市辖区"
-          },
+
           {
             "code": "511602",
             "name": "广安区"
@@ -11156,10 +10342,7 @@ export const CITY_DATA = [
         "code": "511700",
         "name": "达州市",
         "children": [
-          {
-            "code": "511701",
-            "name": "市辖区"
-          },
+
           {
             "code": "511702",
             "name": "通川区"
@@ -11194,10 +10377,7 @@ export const CITY_DATA = [
         "code": "511800",
         "name": "雅安市",
         "children": [
-          {
-            "code": "511801",
-            "name": "市辖区"
-          },
+
           {
             "code": "511802",
             "name": "雨城区"
@@ -11236,10 +10416,7 @@ export const CITY_DATA = [
         "code": "511900",
         "name": "巴中市",
         "children": [
-          {
-            "code": "511901",
-            "name": "市辖区"
-          },
+
           {
             "code": "511902",
             "name": "巴州区"
@@ -11266,10 +10443,7 @@ export const CITY_DATA = [
         "code": "512000",
         "name": "资阳市",
         "children": [
-          {
-            "code": "512001",
-            "name": "市辖区"
-          },
+
           {
             "code": "512002",
             "name": "雁江区"
@@ -11508,10 +10682,7 @@ export const CITY_DATA = [
         "code": "520100",
         "name": "贵阳市",
         "children": [
-          {
-            "code": "520101",
-            "name": "市辖区"
-          },
+
           {
             "code": "520102",
             "name": "南明区"
@@ -11580,10 +10751,7 @@ export const CITY_DATA = [
         "code": "520300",
         "name": "遵义市",
         "children": [
-          {
-            "code": "520301",
-            "name": "市辖区"
-          },
+
           {
             "code": "520302",
             "name": "红花岗区"
@@ -11646,10 +10814,7 @@ export const CITY_DATA = [
         "code": "520400",
         "name": "安顺市",
         "children": [
-          {
-            "code": "520401",
-            "name": "市辖区"
-          },
+
           {
             "code": "520402",
             "name": "西秀区"
@@ -11680,10 +10845,7 @@ export const CITY_DATA = [
         "code": "520500",
         "name": "毕节市",
         "children": [
-          {
-            "code": "520501",
-            "name": "市辖区"
-          },
+
           {
             "code": "520502",
             "name": "七星关区"
@@ -11722,10 +10884,7 @@ export const CITY_DATA = [
         "code": "520600",
         "name": "铜仁市",
         "children": [
-          {
-            "code": "520601",
-            "name": "市辖区"
-          },
+
           {
             "code": "520602",
             "name": "碧江区"
@@ -11940,10 +11099,7 @@ export const CITY_DATA = [
         "code": "530100",
         "name": "昆明市",
         "children": [
-          {
-            "code": "530101",
-            "name": "市辖区"
-          },
+
           {
             "code": "530102",
             "name": "五华区"
@@ -12006,10 +11162,7 @@ export const CITY_DATA = [
         "code": "530300",
         "name": "曲靖市",
         "children": [
-          {
-            "code": "530301",
-            "name": "市辖区"
-          },
+
           {
             "code": "530302",
             "name": "麒麟区"
@@ -12052,10 +11205,7 @@ export const CITY_DATA = [
         "code": "530400",
         "name": "玉溪市",
         "children": [
-          {
-            "code": "530401",
-            "name": "市辖区"
-          },
+
           {
             "code": "530402",
             "name": "红塔区"
@@ -12098,10 +11248,7 @@ export const CITY_DATA = [
         "code": "530500",
         "name": "保山市",
         "children": [
-          {
-            "code": "530501",
-            "name": "市辖区"
-          },
+
           {
             "code": "530502",
             "name": "隆阳区"
@@ -12128,10 +11275,7 @@ export const CITY_DATA = [
         "code": "530600",
         "name": "昭通市",
         "children": [
-          {
-            "code": "530601",
-            "name": "市辖区"
-          },
+
           {
             "code": "530602",
             "name": "昭阳区"
@@ -12182,10 +11326,7 @@ export const CITY_DATA = [
         "code": "530700",
         "name": "丽江市",
         "children": [
-          {
-            "code": "530701",
-            "name": "市辖区"
-          },
+
           {
             "code": "530702",
             "name": "古城区"
@@ -12212,10 +11353,7 @@ export const CITY_DATA = [
         "code": "530800",
         "name": "普洱市",
         "children": [
-          {
-            "code": "530801",
-            "name": "市辖区"
-          },
+
           {
             "code": "530802",
             "name": "思茅区"
@@ -12262,10 +11400,7 @@ export const CITY_DATA = [
         "code": "530900",
         "name": "临沧市",
         "children": [
-          {
-            "code": "530901",
-            "name": "市辖区"
-          },
+
           {
             "code": "530902",
             "name": "临翔区"
@@ -12590,10 +11725,7 @@ export const CITY_DATA = [
         "code": "540100",
         "name": "拉萨市",
         "children": [
-          {
-            "code": "540101",
-            "name": "市辖区"
-          },
+
           {
             "code": "540102",
             "name": "城关区"
@@ -12938,10 +12070,7 @@ export const CITY_DATA = [
         "code": "610100",
         "name": "西安市",
         "children": [
-          {
-            "code": "610101",
-            "name": "市辖区"
-          },
+
           {
             "code": "610102",
             "name": "新城区"
@@ -13000,10 +12129,7 @@ export const CITY_DATA = [
         "code": "610200",
         "name": "铜川市",
         "children": [
-          {
-            "code": "610201",
-            "name": "市辖区"
-          },
+
           {
             "code": "610202",
             "name": "王益区"
@@ -13026,10 +12152,7 @@ export const CITY_DATA = [
         "code": "610300",
         "name": "宝鸡市",
         "children": [
-          {
-            "code": "610301",
-            "name": "市辖区"
-          },
+
           {
             "code": "610302",
             "name": "渭滨区"
@@ -13084,10 +12207,7 @@ export const CITY_DATA = [
         "code": "610400",
         "name": "咸阳市",
         "children": [
-          {
-            "code": "610401",
-            "name": "市辖区"
-          },
+
           {
             "code": "610402",
             "name": "秦都区"
@@ -13150,10 +12270,7 @@ export const CITY_DATA = [
         "code": "610500",
         "name": "渭南市",
         "children": [
-          {
-            "code": "610501",
-            "name": "市辖区"
-          },
+
           {
             "code": "610502",
             "name": "临渭区"
@@ -13204,10 +12321,7 @@ export const CITY_DATA = [
         "code": "610600",
         "name": "延安市",
         "children": [
-          {
-            "code": "610601",
-            "name": "市辖区"
-          },
+
           {
             "code": "610602",
             "name": "宝塔区"
@@ -13266,10 +12380,7 @@ export const CITY_DATA = [
         "code": "610700",
         "name": "汉中市",
         "children": [
-          {
-            "code": "610701",
-            "name": "市辖区"
-          },
+
           {
             "code": "610702",
             "name": "汉台区"
@@ -13320,10 +12431,7 @@ export const CITY_DATA = [
         "code": "610800",
         "name": "榆林市",
         "children": [
-          {
-            "code": "610801",
-            "name": "市辖区"
-          },
+
           {
             "code": "610802",
             "name": "榆阳区"
@@ -13378,10 +12486,7 @@ export const CITY_DATA = [
         "code": "610900",
         "name": "安康市",
         "children": [
-          {
-            "code": "610901",
-            "name": "市辖区"
-          },
+
           {
             "code": "610902",
             "name": "汉滨区"
@@ -13428,10 +12533,7 @@ export const CITY_DATA = [
         "code": "611000",
         "name": "商洛市",
         "children": [
-          {
-            "code": "611001",
-            "name": "市辖区"
-          },
+
           {
             "code": "611002",
             "name": "商州区"
@@ -13472,10 +12574,7 @@ export const CITY_DATA = [
         "code": "620100",
         "name": "兰州市",
         "children": [
-          {
-            "code": "620101",
-            "name": "市辖区"
-          },
+
           {
             "code": "620102",
             "name": "城关区"
@@ -13513,21 +12612,13 @@ export const CITY_DATA = [
       {
         "code": "620200",
         "name": "嘉峪关市",
-        "children": [
-          {
-            "code": "620201",
-            "name": "市辖区"
-          }
-        ]
+        "children": []
       },
       {
         "code": "620300",
         "name": "金昌市",
         "children": [
-          {
-            "code": "620301",
-            "name": "市辖区"
-          },
+
           {
             "code": "620302",
             "name": "金川区"
@@ -13542,10 +12633,7 @@ export const CITY_DATA = [
         "code": "620400",
         "name": "白银市",
         "children": [
-          {
-            "code": "620401",
-            "name": "市辖区"
-          },
+
           {
             "code": "620402",
             "name": "白银区"
@@ -13572,10 +12660,7 @@ export const CITY_DATA = [
         "code": "620500",
         "name": "天水市",
         "children": [
-          {
-            "code": "620501",
-            "name": "市辖区"
-          },
+
           {
             "code": "620502",
             "name": "秦州区"
@@ -13610,10 +12695,7 @@ export const CITY_DATA = [
         "code": "620600",
         "name": "武威市",
         "children": [
-          {
-            "code": "620601",
-            "name": "市辖区"
-          },
+
           {
             "code": "620602",
             "name": "凉州区"
@@ -13636,10 +12718,7 @@ export const CITY_DATA = [
         "code": "620700",
         "name": "张掖市",
         "children": [
-          {
-            "code": "620701",
-            "name": "市辖区"
-          },
+
           {
             "code": "620702",
             "name": "甘州区"
@@ -13670,10 +12749,7 @@ export const CITY_DATA = [
         "code": "620800",
         "name": "平凉市",
         "children": [
-          {
-            "code": "620801",
-            "name": "市辖区"
-          },
+
           {
             "code": "620802",
             "name": "崆峒区"
@@ -13708,10 +12784,7 @@ export const CITY_DATA = [
         "code": "620900",
         "name": "酒泉市",
         "children": [
-          {
-            "code": "620901",
-            "name": "市辖区"
-          },
+
           {
             "code": "620902",
             "name": "肃州区"
@@ -13746,10 +12819,7 @@ export const CITY_DATA = [
         "code": "621000",
         "name": "庆阳市",
         "children": [
-          {
-            "code": "621001",
-            "name": "市辖区"
-          },
+
           {
             "code": "621002",
             "name": "西峰区"
@@ -13788,10 +12858,7 @@ export const CITY_DATA = [
         "code": "621100",
         "name": "定西市",
         "children": [
-          {
-            "code": "621101",
-            "name": "市辖区"
-          },
+
           {
             "code": "621102",
             "name": "安定区"
@@ -13826,10 +12893,7 @@ export const CITY_DATA = [
         "code": "621200",
         "name": "陇南市",
         "children": [
-          {
-            "code": "621201",
-            "name": "市辖区"
-          },
+
           {
             "code": "621202",
             "name": "武都区"
@@ -13954,10 +13018,7 @@ export const CITY_DATA = [
         "code": "630100",
         "name": "西宁市",
         "children": [
-          {
-            "code": "630101",
-            "name": "市辖区"
-          },
+
           {
             "code": "630102",
             "name": "城东区"
@@ -14184,10 +13245,7 @@ export const CITY_DATA = [
         "code": "640100",
         "name": "银川市",
         "children": [
-          {
-            "code": "640101",
-            "name": "市辖区"
-          },
+
           {
             "code": "640104",
             "name": "兴庆区"
@@ -14218,10 +13276,7 @@ export const CITY_DATA = [
         "code": "640200",
         "name": "石嘴山市",
         "children": [
-          {
-            "code": "640201",
-            "name": "市辖区"
-          },
+
           {
             "code": "640202",
             "name": "大武口区"
@@ -14240,10 +13295,7 @@ export const CITY_DATA = [
         "code": "640300",
         "name": "吴忠市",
         "children": [
-          {
-            "code": "640301",
-            "name": "市辖区"
-          },
+
           {
             "code": "640302",
             "name": "利通区"
@@ -14270,10 +13322,7 @@ export const CITY_DATA = [
         "code": "640400",
         "name": "固原市",
         "children": [
-          {
-            "code": "640401",
-            "name": "市辖区"
-          },
+
           {
             "code": "640402",
             "name": "原州区"
@@ -14300,10 +13349,7 @@ export const CITY_DATA = [
         "code": "640500",
         "name": "中卫市",
         "children": [
-          {
-            "code": "640501",
-            "name": "市辖区"
-          },
+
           {
             "code": "640502",
             "name": "沙坡头区"
@@ -14328,10 +13374,7 @@ export const CITY_DATA = [
         "code": "650100",
         "name": "乌鲁木齐市",
         "children": [
-          {
-            "code": "650101",
-            "name": "市辖区"
-          },
+
           {
             "code": "650102",
             "name": "天山区"
@@ -14370,10 +13413,7 @@ export const CITY_DATA = [
         "code": "650200",
         "name": "克拉玛依市",
         "children": [
-          {
-            "code": "650201",
-            "name": "市辖区"
-          },
+
           {
             "code": "650202",
             "name": "独山子区"

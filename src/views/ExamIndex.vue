@@ -31,6 +31,19 @@
     methods: {
         toExam() {
             let ts = this;
+          //  ts.examsItem = ts.$store.getters['GetPaperInfo'];
+           // ts.openid = ts.$store.getters['GET_OPENID'];
+//            ts.$api.get('check/init',{openid:ts.openid,paper:ts.examsItem.id}).then(rets =>{
+//                console.log(rets)
+//                if(rets.status === 'OK'){
+//
+//                }else{
+//                    ts.$mint.Toast({
+//                        message:rets.message,
+//                        position:'center'
+//                    })
+//                }
+//            })
             ts.$router.push({path: 'examTypeOption'})
         },
         toExamRecord(){

@@ -21,7 +21,14 @@
 
         methods: {
             downloadAttach(id){
+
+             //   console.log('----',this.baseRoot+'attachment/download?id='+id)
                window.location=this.baseRoot+'attachment/download?id='+id;
+//                let  ths  = this;
+//                ths.$api.get('attachment/download',{id:id}).then(function (rets) {
+//                    ths.$router.push({path:'/trainingIndex'})
+//                })
+
             }
         },
         mounted: function () {

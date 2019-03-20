@@ -1,5 +1,5 @@
-//let  root  = 'http://coxsh.natapp1.cc/api';
-let  root  = 'https://shmyhyxh.mobilepms.com/am/api/';
+let  root  = 'http://coxsh.natapp1.cc/api';
+//let  root  = 'https://shmyhyxh.mobilepms.com/am/api/';
 import Vue from 'vue'
 import axios from 'axios'
 import Qs from 'qs'

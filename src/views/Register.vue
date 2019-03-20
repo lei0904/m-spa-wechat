@@ -16,7 +16,7 @@
       <mt-cell title="民族" class="special-title"
                @click.native="changeNationOpen">
         <mt-field placeholder="请选民族"
-                  @input="nationInput"
+                  :disabled=true
                   v-model="form.nationText" ></mt-field>
       </mt-cell>
       <mt-field label="手机号" placeholder="请输入手机号"  v-model="form.phone"></mt-field>
@@ -98,7 +98,6 @@
                      :listArr="getWorkTypeAction"> </cui-attr-picker>
     <cui-attr-picker ref="changeNationPicker"
                      @confirm="nationChange"
-                     :popupVisible="false"
                      :listArr="regNationAction"> </cui-attr-picker>
     <cui-attr-picker ref="changeMerchantPicker"
                      @confirm="merchantChange"
@@ -106,12 +105,10 @@
                      :listArr="regMerchantAction"> </cui-attr-picker>
     <cui-address-child
             ref="addressPicker"
-            :cover={}
             @getLinkAddress='handleChange'
             v-show="showAddress"></cui-address-child>
     <cui-address-child
             ref="nowAddressPicker"
-            :cover=coverProvice
             @getLinkAddress='nowHandleChange'
             v-show="showNowAddress"></cui-address-child>
   </div>
@@ -351,6 +348,13 @@
                 });
                 return false;
             }
+            if(!ths.form['businessCode'] || !ths.form['businessCode'] === '-'){
+                ths.$mint.Toast({
+                    message:'商户信息不能为空',
+                    position:'center'
+                });
+                return false;
+            }
             if(!ths.form['IDCard']){
                 ths.$mint.Toast({
                     message:'身份证号码不能为空',
@@ -449,16 +453,31 @@
         handleChange: function (picker) {
             console.log('handleChange-----',picker)
           if(picker){
-                if(picker.province){
-                  this.form.province = picker.province.code;
-                }
-                if(picker.city){
-                    this.form.city = picker.city.code;
-                }
-                if(picker.area){
-                    this.form.area = picker.area.code;
-                }
-            this.form.address = picker.province.name +"-"+picker.city.name+"-"+picker.area.name
+//                if(picker.province){
+//                  this.form.province = picker.province.code;
+//                }
+//                if(picker.city){
+//                    this.form.city = picker.city.code;
+//                }
+//                if(picker.area){
+//                    this.form.area = picker.area.code;
+//                }
+              if(picker.city.name !== '市辖区' && picker.city.name !== '县'){
+                  if(picker.province){
+                      this.form.province = picker.province.code;
+                  }
+                  if(picker.city){
+                      this.form.city = picker.city.code;
+                  }
+                  if(picker.area){
+                      this.form.area = picker.area.code;
+                  }
+                  this.form.address = picker.province.name +"-"+picker.city.name+"-"+picker.area.name
+              }else{
+                  this.form.province =  picker.province.code;
+                  this.form.city = picker.area.code;
+                  this.form.address = picker.province.name +"-"+picker.area.name
+              }
           }
           this.showAddress = false;
         },
@@ -468,29 +487,39 @@
         },
         nowHandleChange: function (picker) {
             console.log('handleChange-----',picker)
+
             if(picker){
-                if(picker.province){
-                    this.form.nowProvince = picker.province.code;
+                if(picker.city.name !== '市辖区' && picker.city.name !== '县'){
+                    if(picker.province){
+                        this.form.nowProvince = picker.province.code;
+                    }
+                    if(picker.city){
+                        this.form.nowCity = picker.city.code;
+                    }
+                    if(picker.area){
+                        this.form.nowArea = picker.area.code;
+                    }
+                    this.form.nowAddress = picker.province.name +"-"+picker.city.name+"-"+picker.area.name
+                }else{
+                    this.form.nowProvince =  picker.province.code;
+                    this.form.nowCity = picker.area.code;
+                    this.form.nowAddress = picker.province.name +"-"+picker.area.name
                 }
-                if(picker.city){
-                    this.form.nowCity = picker.city.code;
-                }
-                if(picker.area){
-                    this.form.nowArea = picker.area.code;
-                }
-                this.form.nowAddress = picker.province.name +"-"+picker.city.name+"-"+picker.area.name
             }
+
             this.showNowAddress = false;
         },
         changeNationOpen(){
             this.$refs.changeNationPicker.open();
             this.getNationAction;
+            console.log("111")
         },
         nationInput(){
+            console.log("222")
             this.$refs.changeNationPicker.open();
             this.getNationAction;
             if(this.form.nationText){
-                let reg = new RegExp(this.form.nationText)
+                let reg = new RegExp(this.form.nationText);
                 console.log('reg----',reg)
                 let tempArr= this.nationAction.filter(k => reg.test(k.name));
                 console.log('tempArr---',tempArr)
@@ -498,11 +527,14 @@
             }else{
                 this.regNationAction = this.nationAction;
             }
+           // this.$refs.changeNationPicker.close();
         },
         nationChange(picker,value){
+            console.log("333")
             console.log(picker,value)
           this.form.nationText = picker;
           this.form.nation =value;
+          this.$refs.changeNationPicker.close();
         },
         sendCode(){
             let ts = this;
@@ -638,14 +670,12 @@
     created(){
         let ths = this;
         ths.pageHeight = document.body.clientHeight;
-
         ths.$store.dispatch('SET_WORK_TYPE');
         ths.$store.dispatch('SET_NATION');
         ths.$store.dispatch('SET_MEMBER_LIST');
     },
 
     mounted: function () {
-
         let ts = this;
         let href = window.location.href;
         console.log('href-----',href)
@@ -689,14 +719,10 @@
                     }
                 });
                 break;
-//            case '1':
-//                ts.$router.push({'path':'/registerInfo'});
-            case '2':
-                ts.$router.push({'path':'/registerInfo',query:{status:Status}});
-                break;
-            case '3':
-                ts.$router.push({'path':'/registerInfo',query:{status:Status}});
-                break;
+
+//            default:
+//                ts.$router.push({'path':'/registerInfo',query:{status:Status}});
+
         }
   }
   }

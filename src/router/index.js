@@ -62,7 +62,7 @@ let router = new Router({
       path: '/exams',
       component: Exam,
         meta:{
-            title: '培训学习',
+            title: '在线考试',
         }
     },
     {
